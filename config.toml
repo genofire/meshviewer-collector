@@ -1,0 +1,73 @@
+folder = "/srv/http/domain/web.fireorbit.de/meshviewer/data"
+run_every = "5m"
+
+[meshviewer]
+config_template = "/opt/meshviewer/build/index.html"
+config_output = "/srv/http/domain/web.fireorbit.de/meshviewer/index.html"
+data_path_url = "/meshviewer/data/%s-"
+
+##
+# dataPath
+
+[[meshviewer.dataPath]]
+url = "https://downloads.bremen.freifunk.net/data/"
+filename = "bremen"
+
+[[meshviewer.dataPath]]
+url = "https://meshviewer.darmstadt.freifunk.net/data/ffda/"
+filename = "darmstadt"
+
+[[meshviewer.dataPath]]
+url = "https://meshviewer.darmstadt.freifunk.net/data/ffdef/"
+filename = "darmstadt-default"
+
+[[meshviewer.dataPath]]
+url = "http://vpn1.freifunk-einbeck.de/meshviewer/data/"
+filename = "einbeck"
+
+#[[meshviewer.dataPath]]
+#url = "https://regensburg.freifunk.net/data/"
+#filename = "regensburg"
+
+[[meshviewer.dataPath]]
+url = "https://map.freifunk.in-kiel.de/yanic/"
+filename = "kiel"
+
+[[meshviewer.dataPath]]
+url = "https://map.freifunk-westpfalz.de/data/"
+filename = "westpfalz"
+
+##
+# siteNames
+
+[[meshviewer.siteNames]]
+site = "ffhb"
+name = "Bremen"
+
+[[meshviewer.siteNames]]
+site = "ffda"
+name = "Darmstadt"
+
+[[meshviewer.siteNames]]
+site = "ffdef"
+name = "Darmstadt"
+
+[[meshviewer.siteNames]]
+site = "ffein"
+name = "Einbeck"
+
+[[meshviewer.siteNames]]
+site = "ffrgb"
+name = "Regensburg"
+
+[[meshviewer.siteNames]]
+site = "ffrgb-bat15"
+name = "Regensburg"
+
+[[meshviewer.siteNames]]
+site = "ffki"
+name = "Kiel"
+
+[[meshviewer.siteNames]]
+site = "ffwp"
+name = "Westpfalz"
