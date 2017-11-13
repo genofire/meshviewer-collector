@@ -25,6 +25,10 @@ filename = "darmstadt-default"
 url = "http://vpn1.freifunk-einbeck.de/meshviewer/data/"
 filename = "einbeck"
 
+[[meshviewer.dataPath]]
+url = "https://yanic.ffm.freifunk.net/legacy/"
+filename = "frankfurt"
+
 #[[meshviewer.dataPath]]
 #url = "https://regensburg.freifunk.net/data/"
 #filename = "regensburg"
@@ -55,6 +59,14 @@ name = "Darmstadt"
 [[meshviewer.siteNames]]
 site = "ffein"
 name = "Einbeck"
+
+[[meshviewer.siteNames]]
+site = "ffffm"
+name = "Frankfurt"
+
+[[meshviewer.siteNames]]
+site = "legacy"
+name = "Frankfurt"
 
 [[meshviewer.siteNames]]
 site = "ffrgb"
