@@ -21,11 +21,6 @@ func main() {
 	if err != nil {
 		log.Panic(err)
 	}
-	os.MkdirAll(config.Folder, 0755)
-	if err != nil {
-		log.Panicf("Error creating directory: %s", err)
-		return
-	}
 	f := runtime.NewFetcher(&config)
 	// Wait for INT/TERM
 	go f.Start()
@@ -53,8 +48,7 @@ func main() {
 			if err != nil {
 				log.Error(err)
 			} else {
-				f.Meshviewer.DataPath = config.Meshviewer.DataPath
-				f.Meshviewer.SiteNames = config.Meshviewer.SiteNames
+				f.Meshviewer.DataPaths = config.Meshviewer.DataPaths
 				log.Info("reloaded")
 			}
 		}
