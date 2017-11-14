@@ -1,14 +1,11 @@
 package runtime
 
 import (
-	"encoding/json"
 	"fmt"
-	"os"
-	"path/filepath"
 	"sync"
-	"text/template"
 	"time"
-
+	
+	"github.com/FreifunkBremen/yanic/jsontime"
 	meshviewerFFRGB "github.com/FreifunkBremen/yanic/output/meshviewer-ffrgb"
 	log "github.com/Sirupsen/logrus"
 	lib "github.com/genofire/golang-lib/file"
@@ -21,7 +18,6 @@ type Fetcher struct {
 
 func NewFetcher(config *Config) *Fetcher {
 	return &Fetcher{
-		temp:   t,
 		Config: config,
 	}
 }
@@ -100,12 +96,11 @@ func (f *Fetcher) fetch() {
 	log.Infof("%d community fetched", count)
 	
 	wgRead.Wait()
-	log.Infof("%d nodes readed", len(output.List))
+	log.Infof("%d nodes readed", len(output.Nodes))
 	close(reading)
 		
-	err = lib.SaveJSON(f.Meshviewer.Output, output)
+	err := lib.SaveJSON(f.Meshviewer.Output, output)
 	if err != nil {
 		log.Errorf("save output failed: %s", err)
-		return
 	}
 }
