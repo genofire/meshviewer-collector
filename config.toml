@@ -1,85 +1,32 @@
-folder = "/srv/http/domain/web.fireorbit.de/meshviewer/data"
 run_every = "5m"
 
-[meshviewer]
-config_template = "/opt/meshviewer/build/index.html"
-config_output = "/srv/http/domain/web.fireorbit.de/meshviewer/index.html"
-data_path_url = "/meshviewer/data/%s-"
+output = "/srv/http/domain/web.fireorbit.de/meshviewer/data/meshviewer.json"
+ignore_meshviewer = "6h"
+ignore_node = "3d"
 
 ##
-# dataPath
+# dataPaths
 
-[[meshviewer.dataPath]]
-url = "https://downloads.bremen.freifunk.net/data/"
-filename = "bremen"
+dataPaths = [
+	# bremen
+	"https://downloads.bremen.freifunk.net/data/meshviewer.json",
 
-[[meshviewer.dataPath]]
-url = "https://meshviewer.darmstadt.freifunk.net/data/ffda/"
-filename = "darmstadt"
+	# darmstadt
+	"https://meshviewer.darmstadt.freifunk.net/data/ffda/meshviewer.json",
+	"https://meshviewer.darmstadt.freifunk.net/data/ffdef/meshviewer.json",
 
-[[meshviewer.dataPath]]
-url = "https://meshviewer.darmstadt.freifunk.net/data/ffdef/"
-filename = "darmstadt-default"
+	# einbeck
+	"http://vpn1.freifunk-einbeck.de/meshviewer/data/meshviewer.json",
 
-[[meshviewer.dataPath]]
-url = "http://vpn1.freifunk-einbeck.de/meshviewer/data/"
-filename = "einbeck"
+	# frankfurt
+	"https://yanic.ffm.freifunk.net/legacy/meshviewer.json",
 
-[[meshviewer.dataPath]]
-url = "https://yanic.ffm.freifunk.net/legacy/"
-filename = "frankfurt"
+	# regensburg
+	#"https://regensburg.freifunk.net/data/meshviewer.json",
 
-#[[meshviewer.dataPath]]
-#url = "https://regensburg.freifunk.net/data/"
-#filename = "regensburg"
+	# kiel
+	"https://map.freifunk.in-kiel.de/yanic/meshviewer.json",
 
-[[meshviewer.dataPath]]
-url = "https://map.freifunk.in-kiel.de/yanic/"
-filename = "kiel"
-
-[[meshviewer.dataPath]]
-url = "https://map.freifunk-westpfalz.de/data/"
-filename = "westpfalz"
-
-##
-# siteNames
-
-[[meshviewer.siteNames]]
-site = "ffhb"
-name = "Bremen"
-
-[[meshviewer.siteNames]]
-site = "ffda"
-name = "Darmstadt"
-
-[[meshviewer.siteNames]]
-site = "ffdef"
-name = "Darmstadt"
-
-[[meshviewer.siteNames]]
-site = "ffein"
-name = "Einbeck"
-
-[[meshviewer.siteNames]]
-site = "ffffm"
-name = "Frankfurt"
-
-[[meshviewer.siteNames]]
-site = "legacy"
-name = "Frankfurt"
-
-[[meshviewer.siteNames]]
-site = "ffrgb"
-name = "Regensburg"
-
-[[meshviewer.siteNames]]
-site = "ffrgb-bat15"
-name = "Regensburg"
-
-[[meshviewer.siteNames]]
-site = "ffki"
-name = "Kiel"
-
-[[meshviewer.siteNames]]
-site = "ffwp"
-name = "Westpfalz"
+	# westpfalz
+	"https://map.freifunk-westpfalz.de/data/meshviewer.json"
+]

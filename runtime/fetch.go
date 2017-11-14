@@ -1,14 +1,10 @@
 package runtime
 
 import (
-	"encoding/json"
-	"fmt"
-	"os"
-	"path/filepath"
 	"sync"
-	"text/template"
 	"time"
 
+	"github.com/FreifunkBremen/yanic/jsontime"
 	meshviewerFFRGB "github.com/FreifunkBremen/yanic/output/meshviewer-ffrgb"
 	log "github.com/Sirupsen/logrus"
 	lib "github.com/genofire/golang-lib/file"
@@ -16,19 +12,11 @@ import (
 
 type Fetcher struct {
 	*Config
-	temp    *template.Template
-	founded []string
-	closed  bool
+	closed bool
 }
 
 func NewFetcher(config *Config) *Fetcher {
-	t, err := template.ParseFiles(config.Meshviewer.ConfigTemplate)
-	if err != nil {
-		log.Error(err)
-		return nil
-	}
 	return &Fetcher{
-		temp:   t,
 		Config: config,
 	}
 }
@@ -51,50 +39,72 @@ func (f *Fetcher) Stop() {
 }
 
 func (f *Fetcher) fetch() {
+	now := jsontime.Now()
+	// do not merge a meshviewer.json older then 6h
+	ignoreMeshviewer := now.Add(-f.IgnoreMeshviewer.Duration)
+	ignoreNode := now.Add(-f.IgnoreNode.Duration)
+	output := &meshviewerFFRGB.Meshviewer{
+		Timestamp: now,
+	}
 
-	wgDirectory := sync.WaitGroup{}
+	wgFetch := sync.WaitGroup{}
 	count := 0
 
-	for _, dp := range f.Meshviewer.DataPath {
-		wgDirectory.Add(1)
-		go func(dp *DataPath) {
-			defer wgDirectory.Done()
+	wgRead := sync.WaitGroup{}
+	reading := make(chan *meshviewerFFRGB.Meshviewer, len(f.DataPaths))
+
+	for _, dp := range f.DataPaths {
+		wgFetch.Add(1)
+		go func(url string) {
+			defer wgFetch.Done()
 			var meshviewerFile meshviewerFFRGB.Meshviewer
 
-			err := JSONRequest(fmt.Sprintf("%s/meshviewer.json", dp.URL), &meshviewerFile)
+			err := JSONRequest(url, &meshviewerFile)
 			if err != nil {
-				log.Errorf("fetch url %s failed: %s", dp.URL, err)
+				log.Errorf("fetch url %s failed: %s", url, err)
 				return
 			}
 
-			log.Infof("fetch url %s", dp.URL)
-			filename := fmt.Sprintf("%s-meshviewer.json", dp.Filename)
-			err = lib.SaveJSON(filepath.Join(f.Folder, filename), meshviewerFile)
-			if err != nil {
-				log.Errorf("save url %s failed: %s", dp.URL, err)
-				return
-			}
-			f.founded = append(f.founded, fmt.Sprintf(f.Meshviewer.DataPathURL, dp.Filename))
-
+			log.Infof("fetch url %s", url)
+			reading <- &meshviewerFile
+			wgRead.Add(1)
 			count++
 		}(dp)
 	}
-	wgDirectory.Wait()
-	log.Infof("%d community readed", count)
+	go func() {
+		for mv := range reading {
+			nodeExists := make(map[string]bool)
+			if mv.Timestamp.Before(ignoreMeshviewer) {
+				wgRead.Done()
+				continue
+			}
+			if mv.Timestamp.Before(output.Timestamp) {
+				output.Timestamp = mv.Timestamp
+			}
+			for _, node := range mv.Nodes {
+				if node.Lastseen.After(ignoreNode) {
+					nodeExists[node.NodeID] = true
+					output.Nodes = append(output.Nodes, node)
+				}
+			}
+			for _, link := range mv.Links {
+				if nodeExists[link.Source] && nodeExists[link.Target] {
+					output.Links = append(output.Links, link)
+				}
+			}
+			wgRead.Done()
+		}
+	}()
 
-	siteNames, _ := json.Marshal(f.Meshviewer.SiteNames)
-	dataPath, _ := json.Marshal(f.founded)
-	file, err := os.OpenFile(f.Meshviewer.ConfigOutput, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+	wgFetch.Wait()
+	log.Infof("%d community fetched", count)
+
+	wgRead.Wait()
+	log.Infof("%d nodes readed", len(output.Nodes))
+	close(reading)
+
+	err := lib.SaveJSON(f.Output, output)
 	if err != nil {
-		log.Error(err)
+		log.Errorf("save output failed: %s", err)
 	}
-	err = f.temp.Execute(file, map[string]interface{}{
-		"SiteNames": string(siteNames),
-		"DataPath":  string(dataPath),
-	})
-	if err != nil {
-		log.Error(err)
-	}
-	file.Close()
-	f.founded = []string{}
 }
