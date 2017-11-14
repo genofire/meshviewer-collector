@@ -100,7 +100,7 @@ func (f *Fetcher) fetch() {
 	log.Infof("%d community fetched", count)
 	
 	wgRead.Wait()
-	log.Infof("%d nodes readed", len(output.List)
+	log.Infof("%d nodes readed", len(output.List))
 	close(reading)
 		
 	err = lib.SaveJSON(f.Meshviewer.Output, output)
