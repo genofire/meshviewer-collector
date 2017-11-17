@@ -50,8 +50,7 @@ func (f *Fetcher) fetch() {
 	wgFetch := sync.WaitGroup{}
 	count := 0
 
-	wgRead := sync.WaitGroup{}
-	reading := make(chan *meshviewerFFRGB.Meshviewer, len(f.DataPaths))
+	var reading []*meshviewerFFRGB.Meshviewer
 
 	for _, dp := range f.DataPaths {
 		wgFetch.Add(1)
@@ -66,42 +65,36 @@ func (f *Fetcher) fetch() {
 			}
 
 			log.Infof("fetch url %s", url)
-			reading <- &meshviewerFile
-			wgRead.Add(1)
+			reading = append(reading, &meshviewerFile)
 			count++
 		}(dp)
 	}
-	go func() {
-		for mv := range reading {
-			nodeExists := make(map[string]bool)
-			if mv.Timestamp.Before(ignoreMeshviewer) {
-				wgRead.Done()
-				continue
-			}
-			if mv.Timestamp.Before(output.Timestamp) {
-				output.Timestamp = mv.Timestamp
-			}
-			for _, node := range mv.Nodes {
-				if node.Lastseen.After(ignoreNode) {
-					nodeExists[node.NodeID] = true
-					output.Nodes = append(output.Nodes, node)
-				}
-			}
-			for _, link := range mv.Links {
-				if nodeExists[link.Source] && nodeExists[link.Target] {
-					output.Links = append(output.Links, link)
-				}
-			}
-			wgRead.Done()
-		}
-	}()
 
 	wgFetch.Wait()
 	log.Infof("%d community fetched", count)
 
-	wgRead.Wait()
+	for _, mv := range reading {
+		nodeExists := make(map[string]bool)
+		if mv.Timestamp.Before(ignoreMeshviewer) {
+			continue
+		}
+		if mv.Timestamp.Before(output.Timestamp) {
+			output.Timestamp = mv.Timestamp
+		}
+		for _, node := range mv.Nodes {
+			if node.Lastseen.After(ignoreNode) {
+				nodeExists[node.NodeID] = true
+				output.Nodes = append(output.Nodes, node)
+			}
+		}
+		for _, link := range mv.Links {
+			if nodeExists[link.Source] && nodeExists[link.Target] {
+				output.Links = append(output.Links, link)
+			}
+		}
+	}
+
 	log.Infof("%d nodes readed", len(output.Nodes))
-	close(reading)
 
 	err := lib.SaveJSON(f.Output, output)
 	if err != nil {
