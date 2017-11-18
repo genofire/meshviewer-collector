@@ -22,7 +22,7 @@ dataPaths = [
 	"https://yanic.ffm.freifunk.net/legacy/meshviewer.json",
 
 	# regensburg
-	#"https://regensburg.freifunk.net/data/meshviewer.json",
+	"https://regensburg.freifunk.net/data/meshviewer.json",
 
 	# kiel
 	"https://map.freifunk.in-kiel.de/yanic/meshviewer.json",
