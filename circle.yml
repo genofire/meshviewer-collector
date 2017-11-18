@@ -1,31 +1,41 @@
-machine:
-  environment:
-    GOROOT: ""
-    PATH: "/usr/local/go/bin:/usr/local/go_workspace/bin:~/.go_workspace/bin:${PATH}"
-    GOPATH: "${HOME}/.go_workspace"
-
-dependencies:
-  override:
-    - mkdir -p ~/.go_workspace/src/github.com/${CIRCLE_PROJECT_USERNAME}
-    - ln -s ${HOME}/${CIRCLE_PROJECT_REPONAME} ${HOME}/.go_workspace/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
-    - go get -t -d -v ./...
-    - go install github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
-  post:
-    - cp ~/.go_workspace/bin/${CIRCLE_PROJECT_REPONAME} ${CIRCLE_PROJECT_REPONAME}.bin
-    - tar -cvzf ${CIRCLE_PROJECT_REPONAME}-builded.tar.gz ${CIRCLE_PROJECT_REPONAME}.bin
-    - mv ${CIRCLE_PROJECT_REPONAME}-builded.tar.gz $CIRCLE_ARTIFACTS
-
-
-
-test:
-  pre:
-    - go get github.com/mattn/goveralls
-    - go get golang.org/x/tools/cmd/cover
-  override:
-    - ./.test-coverage circle-ci
-
-deployment:
-  staging:
-    branch: master
-    commands:
-      - ./deploy.sh $HOST_FOR_STAGING $PORT_FOR_STAGING
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:latest
+    working_directory: /go/src/github.com/genofire/meshviewer-collector
+    steps:
+      - checkout
+      - run: go get -t -d -v ./...
+      - run: go install github.com/genofire/meshviewer-collector
+      - store_artifacts:
+          path: /go/bin/
+          destination: meshviewer-collector
+  test:
+    docker:
+      - image: circleci/golang:latest
+    working_directory: /go/src/github.com/genofire/meshviewer-collector
+    steps:
+      - checkout
+      - run: go get -t -d -v ./...
+      - run: go get github.com/mattn/goveralls
+      - run: go get golang.org/x/tools/cmd/cover
+      - run: ./.test-coverage circle-ci
+      - store_test_results:
+          path: ./
+          destination: profile.cov
+  test_race:
+    docker:
+      - image: circleci/golang:latest
+    working_directory: /go/src/github.com/genofire/meshviewer-collector
+    steps:
+      - checkout
+      - run: go get -t -d -v ./...
+      - run: go test -race ./...
+workflows:
+  version: 2
+  build_and_tests:
+    jobs:
+      - build
+      - test
+      - test_race
