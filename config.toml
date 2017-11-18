@@ -21,6 +21,9 @@ dataPaths = [
 	# frankfurt
 	"https://yanic.ffm.freifunk.net/legacy/meshviewer.json",
 
+	# gera-greiz
+	"https://www.freifunk-gera-greiz.de/meshviewer/data/meshviewer.json",
+
 	# regensburg
 	"https://regensburg.freifunk.net/data/meshviewer.json",
 
