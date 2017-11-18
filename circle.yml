@@ -11,7 +11,7 @@ jobs:
       - store_artifacts:
           path: /go/bin/
           destination: meshviewer-collector
-  test:
+  test_cover:
     docker:
       - image: circleci/golang:latest
     working_directory: /go/src/github.com/genofire/meshviewer-collector
@@ -32,10 +32,20 @@ jobs:
       - checkout
       - run: go get -t -d -v ./...
       - run: go test -race ./...
+  config_validate:
+    docker:
+      - image: circleci/golang:latest
+    working_directory: /go/src/github.com/genofire/meshviewer-collector
+    steps:
+      - checkout
+      - run: go get -t -d -v ./...
+      - run: go install github.com/genofire/meshviewer-collector
+      - run: meshviewer-collector config-validate
 workflows:
   version: 2
   build_and_tests:
     jobs:
       - build
-      - test
+      - test_cover
       - test_race
+      - config_validate

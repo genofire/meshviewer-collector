@@ -6,7 +6,7 @@ After=network.target
 [Service]
 User=http
 Group=http
-ExecStart=/usr/local/bin/meshviewer-collector -config /opt/meshviewer-collector/config.toml
+ExecStart=/usr/local/bin/meshviewer-collector collect --config /opt/meshviewer-collector/config.toml
 ExecReload=/usr/bin/kill -USR1 $MAINPID
 
 [Install]
