@@ -18,8 +18,13 @@ dataPaths = [
 	# einbeck
 	"http://vpn1.freifunk-einbeck.de/meshviewer/data/meshviewer.json",
 
-	# ennepe-ruhr-kreis (Sprockhövel)
+	# Ennepe-Ruhr-Kreis
+	"https://map.ff-en.de/data/ept/meshviewer.json",
+	"https://map.ff-en.de/data/en/meshviewer.json",
+	"https://map.ff-en.de/data/hat/meshviewer.json",
 	"https://map.ff-en.de/data/spr/meshviewer.json",
+	"https://map.ff-en.de/data/wtt/meshviewer.json",
+	"https://map.ff-en.de/data/wit/meshviewer.json",
 
 	# frankfurt
 	"https://yanic.ffm.freifunk.net/legacy/meshviewer.json",
