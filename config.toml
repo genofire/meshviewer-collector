@@ -119,6 +119,9 @@ dataPaths = [
 	# Siegen
 	"https://siegen.map.eulenfunk.de/new/data/meshviewer.json",
 
+	# Trier
+	"http://maps2.tackin.de/data/meshviewer.json",
+	
 	# Velbert
 	"https://vel.karte.neanderfunk.de/new/data/meshviewer.json",
 
@@ -130,4 +133,5 @@ dataPaths = [
 
 	# Wuppertal
 	"https://wup.map.eulenfunk.de/new/data/meshviewer.json"
+	
 ]
