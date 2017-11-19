@@ -8,6 +8,9 @@ ignore_node = "3d"
 # dataPaths
 
 dataPaths = [
+	# aachen + regio aachen
+	"https://data.aachen.freifunk.net/new/meshviewer.json",
+	
 	# bremen
 	"https://downloads.bremen.freifunk.net/data/meshviewer.json",
 
