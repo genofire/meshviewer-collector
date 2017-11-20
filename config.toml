@@ -15,8 +15,7 @@ dataPaths = [
 	"https://downloads.bremen.freifunk.net/data/meshviewer.json",
 
 	## Darmstadt
-	"https://meshviewer.darmstadt.freifunk.net/data/ffda/meshviewer.json", # Darmstadt-yanic
-	"https://meshviewer.darmstadt.freifunk.net/data/ffdef/meshviewer.json", # Darmstadt-self
+	"https://meshviewer.darmstadt.freifunk.net/data/meshviewer.json",
 
 	## Einbeck
 	"http://vpn1.freifunk-einbeck.de/meshviewer/data/meshviewer.json",
