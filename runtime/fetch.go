@@ -12,7 +12,8 @@ import (
 
 type Fetcher struct {
 	*Config
-	closed bool
+	ConfigMutex sync.Mutex
+	closed      bool
 }
 
 func NewFetcher(config *Config) *Fetcher {
@@ -52,6 +53,7 @@ func (f *Fetcher) fetch() {
 
 	var reading []*meshviewerFFRGB.Meshviewer
 
+	f.ConfigMutex.Lock()
 	for _, dp := range f.DataPaths {
 		wgFetch.Add(1)
 		go func(url string) {
@@ -69,6 +71,7 @@ func (f *Fetcher) fetch() {
 			count++
 		}(dp)
 	}
+	f.ConfigMutex.Unlock()
 
 	wgFetch.Wait()
 	log.Infof("%d community fetched", count)

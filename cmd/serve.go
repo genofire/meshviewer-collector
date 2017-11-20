@@ -48,7 +48,9 @@ var collectCMD = &cobra.Command{
 				if err != nil {
 					log.Errorf("error loading config on reload: %s", err)
 				} else if len(config.DataPaths) > 0 {
+					f.ConfigMutex.Lock()
 					f.DataPaths = config.DataPaths
+					f.ConfigMutex.Unlock()
 					log.Info("reloaded")
 				} else {
 					log.Warn("try to reload with empty config")
