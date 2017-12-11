@@ -66,6 +66,9 @@ dataPaths = [
 	"https://map-meinerzhagen.freifunk-mk.de/new/data/meshviewer.json", 	# Meinerzhagen
 	"https://map-neuenrade.freifunk-mk.de/new/data/meshviewer.json", 	# Neuenrade
 
+	## Mainz, Wiesbaden & Umgebung (MWU)
+	"https://map.freifunk-mwu.de/data/meshviewer.json",
+
 	## Neanderfunk
 	"https://han.karte.neanderfunk.de/new/data/meshviewer.json", # Haan
 	"https://hlg.karte.neanderfunk.de/new/data/meshviewer.json", # Heiligenhaus
