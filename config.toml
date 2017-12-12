@@ -82,7 +82,7 @@ dataPaths = [
 	"https://wlf.karte.neanderfunk.de/new/data/meshviewer.json", # Wülfrath
 
 	## Trier
-	"http://maps2.tackin.de/data/meshviewer.json",
+	"http://maps.tackin.de/data/meshviewer.json",
 
 	## Regensburg
 	"https://regensburg.freifunk.net/data/meshviewer.json",
