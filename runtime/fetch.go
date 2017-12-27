@@ -1,6 +1,8 @@
 package runtime
 
 import (
+	"fmt"
+	"strings"
 	"sync"
 	"time"
 
@@ -76,8 +78,11 @@ func (f *Fetcher) fetch() {
 	wgFetch.Wait()
 	log.Infof("%d community fetched", count)
 
+	nodes := make(map[string]*meshviewerFFRGB.Node)
+	links := make(map[string]*meshviewerFFRGB.Link)
+
 	for _, mv := range reading {
-		nodeExists := make(map[string]bool)
+		nodesExists := make(map[string]bool)
 		if mv.Timestamp.Before(ignoreMeshviewer) {
 			continue
 		}
@@ -86,15 +91,36 @@ func (f *Fetcher) fetch() {
 		}
 		for _, node := range mv.Nodes {
 			if node.Lastseen.After(ignoreNode) {
-				nodeExists[node.NodeID] = true
-				output.Nodes = append(output.Nodes, node)
+				if oldnode, ok := nodes[node.NodeID]; ok {
+					if oldnode.Lastseen.Before(node.Lastseen) {
+						nodes[node.NodeID] = node
+						nodesExists[node.NodeID] = true
+					}
+				} else {
+					nodes[node.NodeID] = node
+					nodesExists[node.NodeID] = true
+				}
+
 			}
 		}
 		for _, link := range mv.Links {
-			if nodeExists[link.Source] && nodeExists[link.Target] {
-				output.Links = append(output.Links, link)
+			var key string
+			if strings.Compare(link.SourceMAC, link.TargetMAC) > 0 {
+				key = fmt.Sprintf("%s-%s", link.SourceMAC, link.TargetMAC)
+			} else {
+				key = fmt.Sprintf("%s-%s", link.TargetMAC, link.SourceMAC)
+			}
+			if nodesExists[link.Source] && nodesExists[link.Target] {
+				links[key] = link
 			}
 		}
+	}
+
+	for _, node := range nodes {
+		output.Nodes = append(output.Nodes, node)
+	}
+	for _, link := range links {
+		output.Links = append(output.Links, link)
 	}
 
 	log.Infof("%d nodes readed", len(output.Nodes))
