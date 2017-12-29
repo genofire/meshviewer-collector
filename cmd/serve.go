@@ -6,7 +6,9 @@ import (
 	"syscall"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/genofire/meshviewer-collector/runtime"
+	"github.com/genofire/meshviewer-collector/database"
+	allDatabase "github.com/genofire/meshviewer-collector/database/all"
+	"github.com/genofire/meshviewer-collector/fetcher"
 	"github.com/spf13/cobra"
 )
 
@@ -20,8 +22,14 @@ var collectCMD = &cobra.Command{
 		if err != nil {
 			os.Exit(3)
 		}
+		connections, err := allDatabase.Connect(config.Database.Connection)
+		if err != nil {
+			panic(err)
+		}
+		database.Start(connections, &config)
+		defer database.Close(connections)
 
-		f := runtime.NewFetcher(&config)
+		f := fetcher.NewFetcher(&config, connections)
 		// Wait for INT/TERM
 		go f.Start()
 		log.Info("collecting started")

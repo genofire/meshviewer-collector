@@ -10,4 +10,10 @@ type Config struct {
 	IgnoreMeshviewer yanicRuntime.Duration `toml:"ignore_meshviewer"`
 	IgnoreNode       yanicRuntime.Duration `toml:"ignore_node"`
 	DataPaths        []string              `toml:"dataPaths"`
+
+	Database struct {
+		DeleteInterval yanicRuntime.Duration `toml:"delete_interval"` // Delete stats of nodes every n minutes
+		DeleteAfter    yanicRuntime.Duration `toml:"delete_after"`    // Delete stats of nodes till now-deletetill n minutes
+		Connection     map[string]interface{}
+	}
 }

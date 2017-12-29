@@ -1,4 +1,4 @@
-package runtime
+package fetcher
 
 import (
 	"fmt"
@@ -10,17 +10,23 @@ import (
 	meshviewerFFRGB "github.com/FreifunkBremen/yanic/output/meshviewer-ffrgb"
 	log "github.com/Sirupsen/logrus"
 	lib "github.com/genofire/golang-lib/file"
+	"github.com/genofire/meshviewer-collector/database"
+	"github.com/genofire/meshviewer-collector/runtime"
 )
 
 type Fetcher struct {
-	*Config
+	*runtime.Config
 	ConfigMutex sync.Mutex
+	currentNode map[string]time.Time
+	database    database.Connection
 	closed      bool
 }
 
-func NewFetcher(config *Config) *Fetcher {
+func NewFetcher(config *runtime.Config, db database.Connection) *Fetcher {
 	return &Fetcher{
-		Config: config,
+		Config:      config,
+		database:    db,
+		currentNode: make(map[string]time.Time),
 	}
 }
 
@@ -62,7 +68,7 @@ func (f *Fetcher) fetch() {
 			defer wgFetch.Done()
 			var meshviewerFile meshviewerFFRGB.Meshviewer
 
-			err := JSONRequest(url, &meshviewerFile)
+			err := runtime.JSONRequest(url, &meshviewerFile)
 			if err != nil {
 				log.Errorf("fetch url %s failed: %s", url, err)
 				return
@@ -91,6 +97,7 @@ func (f *Fetcher) fetch() {
 		}
 		for _, node := range mv.Nodes {
 			if node.Lastseen.After(ignoreNode) {
+
 				if oldnode, ok := nodes[node.NodeID]; ok {
 					if oldnode.Lastseen.Before(node.Lastseen) {
 						nodes[node.NodeID] = node
@@ -100,7 +107,6 @@ func (f *Fetcher) fetch() {
 					nodes[node.NodeID] = node
 					nodesExists[node.NodeID] = true
 				}
-
 			}
 		}
 		for _, link := range mv.Links {
@@ -116,11 +122,24 @@ func (f *Fetcher) fetch() {
 		}
 	}
 
+	nodeUpdate := make(map[string]bool)
 	for _, node := range nodes {
 		output.Nodes = append(output.Nodes, node)
+		if date, ok := f.currentNode[node.NodeID]; !ok || date.Before(node.Lastseen.GetTime()) {
+			nodeUpdate[node.NodeID] = true
+			f.currentNode[node.NodeID] = node.Lastseen.GetTime()
+			f.database.InsertNode(node)
+		}
 	}
 	for _, link := range links {
 		output.Links = append(output.Links, link)
+		if nodeUpdate[link.Source] || nodeUpdate[link.Target] {
+			if f.currentNode[link.Source].Before(f.currentNode[link.Target]) {
+				f.database.InsertLink(link, f.currentNode[link.Source])
+			} else {
+				f.database.InsertLink(link, f.currentNode[link.Target])
+			}
+		}
 	}
 
 	log.Infof("%d nodes readed", len(output.Nodes))
