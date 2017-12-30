@@ -91,3 +91,15 @@ dataPaths = [
 	"https://map.freifunk-westpfalz.de/data/meshviewer.json",
 
 ]
+
+[database]
+delete_after    = "1d"
+delete_interval = "1h"
+
+[[database.connection.influxdb]]
+enable          = false
+address         = "http://localhost:8086"
+database        = "freifunk_multi"
+username        = "freifunk_multi"
+password        = "not given"
+

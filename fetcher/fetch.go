@@ -142,6 +142,10 @@ func (f *Fetcher) fetch() {
 		}
 	}
 
+	for site, stats := range runtime.NewGlobalStats(output) {
+		f.database.InsertGlobals(stats, now.GetTime(), site)
+	}
+
 	log.Infof("%d nodes readed", len(output.Nodes))
 
 	err := lib.SaveJSON(f.Output, output)

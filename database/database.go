@@ -4,6 +4,7 @@ import (
 	"time"
 
 	meshviewer "github.com/FreifunkBremen/yanic/output/meshviewer-ffrgb"
+	"github.com/genofire/meshviewer-collector/runtime"
 )
 
 // Connection interface to use for implementation in e.g. influxdb
@@ -15,7 +16,7 @@ type Connection interface {
 	InsertLink(*meshviewer.Link, time.Time)
 
 	// InsertGlobals stores global statistics
-	//InsertGlobals(*GlobalStats, time.Time, string)
+	InsertGlobals(*runtime.GlobalStats, time.Time, string)
 
 	// PruneNodes prunes historical per-node data
 	PruneNodes(deleteAfter time.Duration)

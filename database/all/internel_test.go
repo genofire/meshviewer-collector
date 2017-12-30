@@ -7,7 +7,9 @@ import (
 	"time"
 
 	meshviewer "github.com/FreifunkBremen/yanic/output/meshviewer-ffrgb"
+	runtimeYanic "github.com/FreifunkBremen/yanic/runtime"
 	"github.com/genofire/meshviewer-collector/database"
+	"github.com/genofire/meshviewer-collector/runtime"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -42,13 +44,12 @@ func (c *testConn) GetLink() int {
 	return c.countLink
 }
 
-/*
 func (c *testConn) InsertGlobals(stats *runtime.GlobalStats, time time.Time, site string) {
 	c.Lock()
 	c.countGlobals++
 	c.Unlock()
 }
-*/
+
 func (c *testConn) GetGlobal() int {
 	c.Lock()
 	defer c.Unlock()
@@ -133,10 +134,9 @@ func TestStart(t *testing.T) {
 	assert.Equal(3, globalConn.GetLink())
 
 	assert.Equal(0, globalConn.GetGlobal())
-	/*
-		allConn.InsertGlobals(nil, time.Now(), runtime.GLOBAL_SITE)
-		assert.Equal(3, globalConn.GetGlobal())
-	*/
+	allConn.InsertGlobals(nil, time.Now(), runtimeYanic.GLOBAL_SITE)
+	assert.Equal(3, globalConn.GetGlobal())
+
 	assert.Equal(0, globalConn.GetPrune())
 	allConn.PruneNodes(time.Second)
 	assert.Equal(3, globalConn.GetPrune())
