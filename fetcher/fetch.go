@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/FreifunkBremen/yanic/jsontime"
+	"github.com/FreifunkBremen/yanic/lib/jsontime"
 	meshviewerFFRGB "github.com/FreifunkBremen/yanic/output/meshviewer-ffrgb"
 	log "github.com/Sirupsen/logrus"
 	lib "github.com/genofire/golang-lib/file"

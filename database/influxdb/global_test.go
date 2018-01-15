@@ -8,7 +8,7 @@ import (
 	"github.com/influxdata/influxdb/client/v2"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/FreifunkBremen/yanic/jsontime"
+	"github.com/FreifunkBremen/yanic/lib/jsontime"
 	meshviewer "github.com/FreifunkBremen/yanic/output/meshviewer-ffrgb"
 	runtimeYanic "github.com/FreifunkBremen/yanic/runtime"
 	"github.com/genofire/meshviewer-collector/runtime"

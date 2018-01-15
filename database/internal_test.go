@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	yanicRuntime "github.com/FreifunkBremen/yanic/runtime"
+	duration "github.com/FreifunkBremen/yanic/lib/duration"
 	"github.com/genofire/meshviewer-collector/runtime"
 	"github.com/stretchr/testify/assert"
 )
@@ -44,11 +44,11 @@ func TestStart(t *testing.T) {
 	conn := &testConn{}
 	config := &runtime.Config{
 		Database: struct {
-			DeleteInterval yanicRuntime.Duration `toml:"delete_interval"`
-			DeleteAfter    yanicRuntime.Duration `toml:"delete_after"`
+			DeleteInterval duration.Duration `toml:"delete_interval"`
+			DeleteAfter    duration.Duration `toml:"delete_after"`
 			Connection     map[string]interface{}
 		}{
-			DeleteInterval: yanicRuntime.Duration{Duration: time.Millisecond * 10},
+			DeleteInterval: duration.Duration{Duration: time.Millisecond * 10},
 		},
 	}
 	assert.Nil(quit)
