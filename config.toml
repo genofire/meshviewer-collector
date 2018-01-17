@@ -50,7 +50,7 @@ dataPaths = [
 	"https://map.freifunk-fkb.de/data/bw/meshviewer.json",
 
 	## Frankfurt
-	"https://yanic.ffm.freifunk.net/legacy/meshviewer.json",
+	"https://yanic.ffm.freifunk.net/meshviewer.json",
 
 	## Gera-Greiz
 	"https://www.freifunk-gera-greiz.de/meshviewer/data/meshviewer.json",
