@@ -18,7 +18,7 @@ const (
 	CounterMeasurementFirmware    = "firmware"    // Measurement for firmware statistics
 	CounterMeasurementModel       = "model"       // Measurement for model statistics
 	CounterMeasurementAutoupdater = "autoupdater" // Measurement for autoupdater
-	batchMaxSize                  = 500
+	batchMaxSize                  = 15000
 	batchTimeout                  = 5 * time.Second
 )
 

@@ -57,10 +57,11 @@ func (f *Fetcher) fetch() {
 	}
 
 	wgFetch := sync.WaitGroup{}
-	count := 0
 
-	var reading []*meshviewerFFRGB.Meshviewer
+	reading := make(map[string]*meshviewerFFRGB.Meshviewer)
+	readingMX := sync.Mutex{}
 
+	// fetch jsons
 	f.ConfigMutex.Lock()
 	for _, dp := range f.DataPaths {
 		wgFetch.Add(1)
@@ -70,31 +71,40 @@ func (f *Fetcher) fetch() {
 
 			err := runtime.JSONRequest(url, &meshviewerFile)
 			if err != nil {
-				log.Errorf("fetch url %s failed: %s", url, err)
+				log.WithField("url", url).Errorf("fetch meshviewer.json failed: %s", err)
 				return
 			}
 
-			log.Infof("fetch url %s", url)
-			reading = append(reading, &meshviewerFile)
-			count++
+			log.WithFields(log.Fields{
+				"url":   url,
+				"nodes": len(meshviewerFile.Nodes),
+				"links": len(meshviewerFile.Links),
+			}).Info("fetch")
+			readingMX.Lock()
+			reading[url] = &meshviewerFile
+			readingMX.Unlock()
 		}(dp)
 	}
 	f.ConfigMutex.Unlock()
 
 	wgFetch.Wait()
-	log.Infof("%d community fetched", count)
 
 	nodes := make(map[string]*meshviewerFFRGB.Node)
 	links := make(map[string]*meshviewerFFRGB.Link)
 
-	for _, mv := range reading {
+	countMerge := 0
+
+	// merge jsons
+	for url, mv := range reading {
 		nodesExists := make(map[string]bool)
 		if mv.Timestamp.Before(ignoreMeshviewer) {
+			log.WithField("url", url).Errorf("drop meshviewer.json %s is older then %s", mv.Timestamp.GetTime().String(), ignoreMeshviewer.GetTime().String())
 			continue
 		}
 		if mv.Timestamp.Before(output.Timestamp) {
 			output.Timestamp = mv.Timestamp
 		}
+		countNodes := 0
 		for _, node := range mv.Nodes {
 			if node.Lastseen.After(ignoreNode) {
 
@@ -106,9 +116,12 @@ func (f *Fetcher) fetch() {
 				} else {
 					nodes[node.NodeID] = node
 					nodesExists[node.NodeID] = true
+					countNodes++
 				}
 			}
 		}
+
+		countLinks := 0
 		for _, link := range mv.Links {
 			var key string
 			if strings.Compare(link.SourceMAC, link.TargetMAC) > 0 {
@@ -118,10 +131,18 @@ func (f *Fetcher) fetch() {
 			}
 			if nodesExists[link.Source] && nodesExists[link.Target] {
 				links[key] = link
+				countLinks++
 			}
 		}
+		countMerge++
+		log.WithFields(log.Fields{
+			"url":   url,
+			"nodes": countNodes,
+			"links": countLinks,
+		}).Info("read")
 	}
 
+	// export (to database)
 	nodeUpdate := make(map[string]bool)
 	for _, node := range nodes {
 		output.Nodes = append(output.Nodes, node)
@@ -131,6 +152,7 @@ func (f *Fetcher) fetch() {
 			f.database.InsertNode(node)
 		}
 	}
+
 	for _, link := range links {
 		output.Links = append(output.Links, link)
 		if nodeUpdate[link.Source] || nodeUpdate[link.Target] {
@@ -141,12 +163,17 @@ func (f *Fetcher) fetch() {
 			}
 		}
 	}
+	log.WithFields(log.Fields{
+		"nodes":               len(output.Nodes),
+		"links":               len(output.Links),
+		"communities":         countMerge,
+		"communities_fetched": len(reading),
+		"communities_config":  len(f.DataPaths),
+	}).Info("export")
 
 	for site, stats := range runtime.NewGlobalStats(output) {
 		f.database.InsertGlobals(stats, now.GetTime(), site)
 	}
-
-	log.Infof("%d nodes readed", len(output.Nodes))
 
 	err := lib.SaveJSON(f.Output, output)
 	if err != nil {
