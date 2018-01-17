@@ -20,6 +20,9 @@ dataPaths = [
 	## Einbeck
 	"http://vpn1.freifunk-einbeck.de/meshviewer/data/meshviewer.json",
 
+	## Essen
+	"https://map.freifunk-essen.de/data/meshviewer.json",
+
 	## Ennepe-Ruhr-Kreis
 	"https://map.ff-en.de/data/ept/meshviewer.json", # Ennepetal
 	"https://map.ff-en.de/data/en/meshviewer.json",  # EN-Kreis
@@ -40,6 +43,12 @@ dataPaths = [
 	## Flingern
 	"https://karte.ffdus.de/new/data/meshviewer.json",
 
+	## Frankenberg
+	"https://map.freifunk-fkb.de/data/fkb/meshviewer.json",
+	"https://map.freifunk-fkb.de/data/ebl/meshviewer.json",
+	"https://map.freifunk-fkb.de/data/kb/meshviewer.json",
+	"https://map.freifunk-fkb.de/data/bw/meshviewer.json",
+
 	## Frankfurt
 	"https://yanic.ffm.freifunk.net/legacy/meshviewer.json",
 
@@ -53,11 +62,29 @@ dataPaths = [
 	"https://rrh.map.ffgl.eu/new/data/meshviewer.json", # Rösrath
 	"https://lln.map.ffgl.eu/new/data/meshviewer.json", # Leichlingen
 
+	## Hochstift
+	"https://map.hochstift.freifunk.net/data/pad-cty/meshviewer.json",
+	"https://map.hochstift.freifunk.net/data/pad-uml/meshviewer.json",
+	"https://map.hochstift.freifunk.net/data/buq/meshviewer.json",
+	"https://map.hochstift.freifunk.net/data/pb-nord/meshviewer.json",
+	"https://map.hochstift.freifunk.net/data/pb-ost/meshviewer.json",
+	"https://map.hochstift.freifunk.net/data/pb-sued/meshviewer.json",
+	"https://map.hochstift.freifunk.net/data/pb-west/meshviewer.json",
+	"https://map.hochstift.freifunk.net/data/hx-nord/meshviewer.json",
+	"https://map.hochstift.freifunk.net/data/hx-sued/meshviewer.json",
+	"https://map.hochstift.freifunk.net/data/uml/meshviewer.json",
+
 	## Iserlohn
 	"https://map.freifunk-iserlohn.de/new/data/meshviewer.json",
 
 	## Kiel
 	"https://map.freifunk.in-kiel.de/yanic/meshviewer.json",
+
+	## Karlsruhe
+	"https://api.karlsruhe.freifunk.net/yanic/meshviewer/meshviewer.json",
+
+	## Leverkusen
+	"https://map.fflev.de/data/meshviewer.json",
 
 	## Märkischen Kreis
 	"https://map-altena.freifunk-mk.de/new/data/meshviewer.json", # Altena
@@ -68,6 +95,12 @@ dataPaths = [
 
 	## Mainz, Wiesbaden & Umgebung (MWU)
 	"https://map.freifunk-mwu.de/data/meshviewer.json",
+
+	## Nord
+	"https://mesh.freifunknord.de/data/v2/meshviewer.json",
+
+	## Nordwest
+	"https://map.ffnw.de/data/meshviewer.json",
 
 	## Neanderfunk
 	"https://han.karte.neanderfunk.de/new/data/meshviewer.json", # Haan
@@ -86,6 +119,15 @@ dataPaths = [
 
 	## Regensburg
 	"https://regensburg.freifunk.net/data/meshviewer.json",
+
+	## Roenkhausen
+	"https://map.roenkhausen.de/meshviewer/data/meshviewer.json",
+
+	## Uelzen
+	"https://map.ffue.eu/data/meshviewer.json",
+
+	## Vogtland
+	"http://vpn1.freifunk-einbeck.de/meshviewer/data/meshviewer.json",
 
 	## Westpfalz
 	"https://map.freifunk-westpfalz.de/data/meshviewer.json",
