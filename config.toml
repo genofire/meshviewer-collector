@@ -1,6 +1,5 @@
 run_every = "5m"
 
-output = "/srv/http/domain/web.fireorbit.de/meshviewer/data/meshviewer.json"
 ignore_meshviewer = "6h"
 ignore_node = "3d"
 
@@ -151,14 +150,7 @@ dataPaths = [
 
 ]
 
-[database]
-delete_after    = "1d"
-delete_interval = "1h"
 
-[[database.connection.influxdb]]
-enable          = false
-address         = "http://localhost:8086"
-database        = "freifunk_multi"
-username        = "freifunk_multi"
-password        = "not given"
-
+[yanic_connection]
+type          = "udp6"
+address       = "local-ext:11001"
