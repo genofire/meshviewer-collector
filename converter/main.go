@@ -115,15 +115,18 @@ func (conv *Converter) Node(node *meshviewerFFRGB.Node) (*yanicRuntime.Node, int
 			GatewayNexthop: node.GatewayNexthop,
 			GatewayIPv4:    node.GatewayIPv4,
 			GatewayIPv6:    node.GatewayIPv6,
-			Memory: yanicData.Memory{
-				Free:  100 - uint32(*node.MemoryUsage*100.0),
-				Total: 100,
-			},
 		},
 		Neighbours: &yanicData.Neighbours{
 			NodeID: node.NodeID,
 			Batadv: make(map[string]yanicData.BatadvNeighbours),
 		},
+	}
+
+	if node.MemoryUsage != nil {
+		newNode.Statistics.Memory = yanicData.Memory{
+			Free:  100 - uint32(*node.MemoryUsage*100.0),
+			Total: 100,
+		}
 	}
 
 	if node.Location != nil {
