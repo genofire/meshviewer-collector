@@ -82,6 +82,9 @@ dataPaths = [
 
 	## Karlsruhe
 	"https://api.karlsruhe.freifunk.net/yanic/meshviewer/meshviewer.json",
+	
+	## Koeln
+	"https://map.ffkbu.de/data/meshviewer.json",
 
 	## Leverkusen
 	"https://map.fflev.de/data/meshviewer.json",
