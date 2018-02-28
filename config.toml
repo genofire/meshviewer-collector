@@ -61,6 +61,9 @@ dataPaths = [
 	"https://ode.map.ffgl.eu/new/data/meshviewer.json", # Odenthal
 	"https://rrh.map.ffgl.eu/new/data/meshviewer.json", # Rösrath
 	"https://lln.map.ffgl.eu/new/data/meshviewer.json", # Leichlingen
+	
+	## Hannover
+	"https://harvester.ffh.zone/meshviewer.json",
 
 	## Hochstift
 	"https://map.hochstift.freifunk.net/data/pad-cty/meshviewer.json",
