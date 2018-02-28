@@ -133,7 +133,7 @@ dataPaths = [
 	"https://map.ffue.eu/data/meshviewer.json",
 
 	## Vogtland
-	"http://vpn1.freifunk-einbeck.de/meshviewer/data/meshviewer.json",
+	"https://vpn01.freifunk-vogtland.net/ffv/meshviewer.json",
 
 	## Westpfalz
 	"https://map.freifunk-westpfalz.de/data/meshviewer.json",
