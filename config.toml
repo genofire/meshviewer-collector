@@ -91,6 +91,9 @@ dataPaths = [
 
 	## Leverkusen
 	"https://map.fflev.de/data/meshviewer.json",
+	
+	## Lueneburg
+	"http://gw4.freifunk-lueneburg.de/meshviewer/data/meshviewer.json",
 
 	## Märkischen Kreis
 	"https://map-altena.freifunk-mk.de/new/data/meshviewer.json", # Altena
