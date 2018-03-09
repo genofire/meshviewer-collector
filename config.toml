@@ -134,6 +134,14 @@ dataPaths = [
 
 	## Vogtland
 	"https://vpn01.freifunk-vogtland.net/ffv/meshviewer.json",
+	
+	## Winterberg
+	"https://map.freifunk-winterberg.net/data/wtbg/meshviewer.json",
+	"https://map.freifunk-winterberg.net/data/sdlh/meshviewer.json",
+	"https://map.freifunk-winterberg.net/data/hd/meshviewer.json",
+	"https://map.freifunk-winterberg.net/data/mdb/meshviewer.json",
+	"https://map.freifunk-winterberg.net/data/doerfer/meshviewer.json",
+	"https://map.freifunk-winterberg.net/data/hlb/meshviewer.json",
 
 	## Westpfalz
 	"https://map.freifunk-westpfalz.de/data/meshviewer.json",
