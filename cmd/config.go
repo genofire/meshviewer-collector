@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/genofire/golang-lib/file"
+	"dev.sum7.eu/genofire/golang-lib/file"
 
 	"github.com/genofire/meshviewer-collector/runtime"
 )

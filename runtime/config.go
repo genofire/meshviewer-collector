@@ -11,5 +11,7 @@ type Config struct {
 	IgnoreNode       duration.Duration `toml:"ignore_node"`
 	DataPaths        []string          `toml:"dataPaths"`
 
+	StatusJSON string `toml:"status_json"`
+
 	YanicConnection map[string]interface{} `toml:"yanic_connection"`
 }

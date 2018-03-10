@@ -5,7 +5,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	databaseYanic "github.com/FreifunkBremen/yanic/database/yanic"
+	databaseYanic "github.com/FreifunkBremen/yanic/database/respondd"
 	log "github.com/Sirupsen/logrus"
 	"github.com/genofire/meshviewer-collector/fetcher"
 	"github.com/spf13/cobra"

@@ -6,6 +6,8 @@ jobs:
     working_directory: /go/src/github.com/genofire/meshviewer-collector
     steps:
       - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
       - run: go get -t -d -v ./...
       - run: go install github.com/genofire/meshviewer-collector
       - store_artifacts:
@@ -17,6 +19,8 @@ jobs:
     working_directory: /go/src/github.com/genofire/meshviewer-collector
     steps:
       - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
       - run: go get -t -d -v ./...
       - run: go get github.com/mattn/goveralls
       - run: go get golang.org/x/tools/cmd/cover
@@ -30,6 +34,8 @@ jobs:
     working_directory: /go/src/github.com/genofire/meshviewer-collector
     steps:
       - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
       - run: go get -t -d -v ./...
       - run: go test -race ./...
   config_validate:
@@ -38,6 +44,8 @@ jobs:
     working_directory: /go/src/github.com/genofire/meshviewer-collector
     steps:
       - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
       - run: go get -t -d -v ./...
       - run: go install github.com/genofire/meshviewer-collector
       - run: meshviewer-collector config-validate

@@ -1,11 +1,13 @@
 package fetcher
 
 import (
+	"fmt"
 	"sync"
 	"time"
 
 	log "github.com/Sirupsen/logrus"
 
+	"dev.sum7.eu/genofire/golang-lib/file"
 	"github.com/FreifunkBremen/yanic/database"
 	"github.com/FreifunkBremen/yanic/lib/jsontime"
 	meshviewerFFRGB "github.com/FreifunkBremen/yanic/output/meshviewer-ffrgb"
@@ -55,6 +57,8 @@ func (f *Fetcher) fetch() {
 
 	wgFetch := sync.WaitGroup{}
 
+	var status []*Status
+
 	// fetch jsons
 	f.ConfigMutex.Lock()
 	for _, dp := range f.DataPaths {
@@ -66,12 +70,28 @@ func (f *Fetcher) fetch() {
 
 			err := runtime.JSONRequest(url, &mv)
 			if err != nil {
+				status = append(status, &Status{
+					URL:   url,
+					Error: err.Error(),
+				})
 				log.WithField("url", url).Errorf("fetch meshviewer.json failed: %s", err)
 				return
 			}
 
+			allNodes := len(mv.Nodes)
+			allLinks := len(mv.Links)
+
 			if mv.Timestamp.Before(ignoreMeshviewer) {
-				logger.Errorf("drop meshviewer.json %s is older then %s", mv.Timestamp.GetTime().String(), ignoreMeshviewer.GetTime().String())
+				errStr := fmt.Sprintf("drop meshviewer.json %s is older then %s", mv.Timestamp.GetTime().String(), ignoreMeshviewer.GetTime().String())
+				status = append(status, &Status{
+					URL:            url,
+					Error:          errStr,
+					Timestamp:      mv.Timestamp,
+					NodesSkipCount: allNodes,
+					NodesCount:     allNodes,
+					LinksCount:     allLinks,
+				})
+				logger.Errorf(errStr)
 				return
 			}
 
@@ -89,19 +109,36 @@ func (f *Fetcher) fetch() {
 				count++
 			}
 
-			all := len(mv.Nodes)
 			logger.WithFields(log.Fields{
 				"send_nodes":       count,
-				"skip_nodes":       all - count,
-				"meshviewer_nodes": all,
+				"skip_nodes":       allNodes - count,
+				"meshviewer_nodes": allNodes,
 				"send_neighbours":  neighbours,
-				"meshviewer_links": len(mv.Links),
+				"meshviewer_links": allLinks,
 			}).Info("send to yanic")
+
+			status = append(status, &Status{
+				URL:             url,
+				Timestamp:       mv.Timestamp,
+				NodesCount:      count,
+				NodesSkipCount:  allNodes - count,
+				NeighboursCount: neighbours,
+				LinksCount:      allLinks,
+			})
 
 		}(dp)
 	}
 	f.ConfigMutex.Unlock()
 
 	wgFetch.Wait()
-	log.Info("compelete of fetching")
+	if f.StatusJSON != "" {
+		if err := file.SaveJSON(f.StatusJSON, status); err != nil {
+			log.Warnf("complete of fetching with error save status %s", err.Error())
+		} else {
+
+			log.Info("complete of fetching")
+		}
+	} else {
+		log.Info("complete of fetching")
+	}
 }

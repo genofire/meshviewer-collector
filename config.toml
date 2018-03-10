@@ -3,6 +3,8 @@ run_every = "5m"
 ignore_meshviewer = "6h"
 ignore_node = "3d"
 
+status_json = "/srv/http/domain/web.fireorbit.de/meshviewer/data/status.json"
+
 ##
 # dataPaths
 
@@ -84,7 +86,7 @@ dataPaths = [
 
 	## Karlsruhe
 	"https://api.karlsruhe.freifunk.net/yanic/meshviewer/meshviewer.json",
-	
+
 	## Koeln
 	"https://map.ffkbu.de/data/meshviewer.json",
 

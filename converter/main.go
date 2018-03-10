@@ -124,7 +124,7 @@ func (conv *Converter) Node(node *meshviewerFFRGB.Node) (*yanicRuntime.Node, int
 
 	if node.MemoryUsage != nil {
 		newNode.Statistics.Memory = yanicData.Memory{
-			Free:  100 - uint32(*node.MemoryUsage*100.0),
+			Free:  100 - int64(*node.MemoryUsage*100.0),
 			Total: 100,
 		}
 	}
