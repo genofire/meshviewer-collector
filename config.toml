@@ -105,6 +105,9 @@ dataPaths = [
 
 	## Mainz, Wiesbaden & Umgebung (MWU)
 	"https://map.freifunk-mwu.de/data/meshviewer.json",
+	
+	## Niersufer
+	"https://hopglass.freifunk-niersufer.de/meshviewer/data/meshviewer.json",
 
 	## Nord
 	"https://mesh.freifunknord.de/data/meshviewer.json",
