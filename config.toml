@@ -136,6 +136,9 @@ dataPaths = [
 	## Roenkhausen
 	"https://map.roenkhausen.de/meshviewer/data/meshviewer.json",
 
+	## Suedholstein
+	"https://map.freifunk-suedholstein.de/data/meshviewer.json",
+
 	## Uelzen
 	"https://map.ffue.eu/data/meshviewer.json",
 
