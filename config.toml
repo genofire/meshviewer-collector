@@ -23,6 +23,9 @@ dataPaths = [
 
 	## Einbeck
 	"http://vpn1.freifunk-einbeck.de/meshviewer/data/meshviewer.json",
+	
+	## Erfurt
+	"https://test.c-wellie.de/data/meshviewer.json",
 
 	## Essen
 	"https://map.freifunk-essen.de/data/meshviewer.json",
