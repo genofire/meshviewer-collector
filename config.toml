@@ -9,6 +9,9 @@ status_json = "/srv/http/domain/web.fireorbit.de/meshviewer/data/status.json"
 # dataPaths
 
 dataPaths = [
+	## Altdorf
+	"https://map.tecff.de/yanic/meshviewer.json",
+
 	## Aachen + regio aachen
 	"https://data.aachen.freifunk.net/new/meshviewer.json",
 
