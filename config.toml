@@ -138,6 +138,9 @@ dataPaths = [
 
 	## Regensburg
 	"https://regensburg.freifunk.net/data/meshviewer.json",
+	
+	## Rhein-Neckar
+	"https://map.ffrn.de/data/meshviewer.json",
 
 	## Roenkhausen
 	"https://map.roenkhausen.de/meshviewer/data/meshviewer.json",
