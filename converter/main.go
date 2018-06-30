@@ -29,42 +29,42 @@ func NewConverter(meshviewer *meshviewerFFRGB.Meshviewer) (conv *Converter) {
 	}
 
 	for _, link := range meshviewer.Links {
-		if link.SourceMAC == "" || link.Source == "" || link.TargetMAC == "" || link.Target == "" {
+		if link.SourceAddress == "" || link.Source == "" || link.TargetAddress == "" || link.Target == "" {
 			continue
 		}
-		if _, ok := conv.macToLink[link.SourceMAC]; !ok {
-			conv.macToLink[link.SourceMAC] = []*meshviewerFFRGB.Link{link}
+		if _, ok := conv.macToLink[link.SourceAddress]; !ok {
+			conv.macToLink[link.SourceAddress] = []*meshviewerFFRGB.Link{link}
 		} else {
-			conv.macToLink[link.SourceMAC] = append(conv.macToLink[link.SourceMAC], link)
+			conv.macToLink[link.SourceAddress] = append(conv.macToLink[link.SourceAddress], link)
 		}
-		if _, ok := conv.macToLink[link.TargetMAC]; !ok {
-			conv.macToLink[link.TargetMAC] = []*meshviewerFFRGB.Link{link}
+		if _, ok := conv.macToLink[link.TargetAddress]; !ok {
+			conv.macToLink[link.TargetAddress] = []*meshviewerFFRGB.Link{link}
 		} else {
-			conv.macToLink[link.TargetMAC] = append(conv.macToLink[link.TargetMAC], link)
+			conv.macToLink[link.TargetAddress] = append(conv.macToLink[link.TargetAddress], link)
 		}
 
-		conv.macToTQ[link.SourceMAC+"-"+link.TargetMAC] = link.SourceTQ
-		conv.macToTQ[link.TargetMAC+"-"+link.SourceMAC] = link.TargetTQ
+		conv.macToTQ[link.SourceAddress+"-"+link.TargetAddress] = link.SourceTQ
+		conv.macToTQ[link.TargetAddress+"-"+link.SourceAddress] = link.TargetTQ
 
 		if _, ok := conv.nodeIDToMac[link.Source]; !ok {
-			conv.nodeIDToMac[link.Source] = []string{link.SourceMAC}
+			conv.nodeIDToMac[link.Source] = []string{link.SourceAddress}
 		} else {
-			conv.nodeIDToMac[link.Source] = append(conv.nodeIDToMac[link.Source], link.SourceMAC)
+			conv.nodeIDToMac[link.Source] = append(conv.nodeIDToMac[link.Source], link.SourceAddress)
 		}
 
 		if _, ok := conv.nodeIDToMac[link.Target]; !ok {
-			conv.nodeIDToMac[link.Target] = []string{link.TargetMAC}
+			conv.nodeIDToMac[link.Target] = []string{link.TargetAddress}
 		} else {
-			conv.nodeIDToMac[link.Target] = append(conv.nodeIDToMac[link.Target], link.TargetMAC)
+			conv.nodeIDToMac[link.Target] = append(conv.nodeIDToMac[link.Target], link.TargetAddress)
 		}
 
 		if strings.Contains(link.Type, "vpn") {
-			conv.macTunnel[link.SourceMAC] = struct{}{}
-			conv.macTunnel[link.TargetMAC] = struct{}{}
+			conv.macTunnel[link.SourceAddress] = struct{}{}
+			conv.macTunnel[link.TargetAddress] = struct{}{}
 		}
 		if strings.Contains(link.Type, "wifi") {
-			conv.macWifi[link.SourceMAC] = struct{}{}
-			conv.macWifi[link.TargetMAC] = struct{}{}
+			conv.macWifi[link.SourceAddress] = struct{}{}
+			conv.macWifi[link.TargetAddress] = struct{}{}
 		}
 	}
 
@@ -84,7 +84,7 @@ func (conv *Converter) Node(node *meshviewerFFRGB.Node) (*yanicRuntime.Node, int
 			Network: yanicData.Network{
 				Mac:       node.MAC,
 				Addresses: node.Addresses,
-				Mesh:      make(map[string]*yanicData.BatInterface),
+				Mesh:      make(map[string]*yanicData.NetworkInterface),
 			},
 			VPN: node.VPN,
 			System: yanicData.System{
@@ -159,9 +159,9 @@ func (conv *Converter) Node(node *meshviewerFFRGB.Node) (*yanicRuntime.Node, int
 			Neighbours: make(map[string]yanicData.BatmanLink),
 		}
 		for _, link := range conv.macToLink[mac] {
-			neighMAC := link.SourceMAC
+			neighMAC := link.SourceAddress
 			if neighMAC == mac {
-				neighMAC = link.TargetMAC
+				neighMAC = link.TargetAddress
 			}
 			ifname.Neighbours[neighMAC] = yanicData.BatmanLink{
 				Tq:       int(conv.macToTQ[mac+"-"+neighMAC] * 255.0),
@@ -172,7 +172,7 @@ func (conv *Converter) Node(node *meshviewerFFRGB.Node) (*yanicRuntime.Node, int
 		newNode.Neighbours.Batadv[mac] = ifname
 		neighbours++
 	}
-	newNode.Nodeinfo.Network.Mesh["bat0"] = &yanicData.BatInterface{
+	newNode.Nodeinfo.Network.Mesh["bat0"] = &yanicData.NetworkInterface{
 		Interfaces: struct {
 			Wireless []string `json:"wireless,omitempty"`
 			Other    []string `json:"other,omitempty"`
