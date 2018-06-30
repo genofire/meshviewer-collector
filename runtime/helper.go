@@ -3,10 +3,15 @@ package runtime
 import (
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 func JSONRequest(url string, value interface{}) error {
-	resp, err := http.Get(url)
+	var netClient = &http.Client{
+		Timeout: time.Second * 20,
+	}
+
+	resp, err := netClient.Get(url)
 	if err != nil {
 		return err
 	}
