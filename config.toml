@@ -158,7 +158,7 @@ dataPaths = [
 	"https://map.ffue.eu/data/meshviewer.json",
 
 	## Vogtland
-	"https://vpn01.freifunk-vogtland.net/ffv/meshviewer.json",
+	"https://mapdata.freifunk-vogtland.net/meshviewer.json",
 	
 	## Winterberg
 	"https://map.freifunk-winterberg.net/data/wtbg/meshviewer.json",
