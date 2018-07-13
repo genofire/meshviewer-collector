@@ -163,6 +163,9 @@ dataPaths = [
 	## Vogtland
 	"https://mapdata.freifunk-vogtland.net/meshviewer.json",
 	
+	## Wels
+	"http://leto.wels.funkfeuer.at:8080/meshviewer/data/meshviewer.json",
+	
 	## Winterberg
 	"https://map.freifunk-winterberg.net/data/wtbg/meshviewer.json",
 	"https://map.freifunk-winterberg.net/data/sdlh/meshviewer.json",
