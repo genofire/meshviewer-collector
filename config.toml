@@ -25,7 +25,7 @@ dataPaths = [
 	"http://vpn1.freifunk-einbeck.de/meshviewer/data/meshviewer.json",
 	
 	## Erfurt
-	"https://test.c-wellie.de/data/meshviewer.json",
+	"https://map.erfurt.freifunk.net/data/meshviewer.json",
 
 	## Essen
 	"https://map.freifunk-essen.de/data/meshviewer.json",
@@ -47,8 +47,8 @@ dataPaths = [
 	#"https://siegen.map.eulenfunk.de/new/data/meshviewer.json", # Siegen
 	#"https://wup.map.eulenfunk.de/new/data/meshviewer.json", # Wuppertal
 
-	## Flingern
-	"https://karte.ffdus.de/new/data/meshviewer.json",
+	## Flingern (no active feed)
+	#"https://karte.ffdus.de/new/data/meshviewer.json",
 
 	## Frankenberg
 	"https://map.freifunk-fkb.de/data/fkb/meshviewer.json",
@@ -87,8 +87,8 @@ dataPaths = [
 	"https://map.hochstift.freifunk.net/data/hx-sued/meshviewer.json",
 	"https://map.hochstift.freifunk.net/data/uml/meshviewer.json",
 
-	## Iserlohn
-	"https://map.freifunk-iserlohn.de/new/data/meshviewer.json",
+	## Iserlohn (no active feed)
+	#"https://map.freifunk-iserlohn.de/new/data/meshviewer.json",
 
 	## Kiel
 	"https://map.freifunk.in-kiel.de/yanic/meshviewer.json",
@@ -157,8 +157,8 @@ dataPaths = [
 	## Troisdorf
 	"https://map.freifunk-troisdorf.de/data/tdf4/meshviewer.json",
 
-	## Uelzen
-	"https://map.ffue.eu/data/meshviewer.json",
+	## Uelzen (no active feed)
+	# "https://map.ffue.eu/data/meshviewer.json",
 
 	## Vogtland
 	"https://mapdata.freifunk-vogtland.net/meshviewer.json",
