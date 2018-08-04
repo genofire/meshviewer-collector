@@ -38,14 +38,14 @@ dataPaths = [
 	"https://map.ff-en.de/data/wtt/meshviewer.json", # Wetter
 	"https://map.ff-en.de/data/wit/meshviewer.json", # Witten
 
-	## Eulenfunk
-	"https://freudenberg.map.eulenfunk.de/new/data/meshviewer.json", # Freudenberg
-	"https://gek.map.eulenfunk.de/new/data/meshviewer.json", # Gelsenkirchen
-	"https://hilchenbach.map.eulenfunk.de/new/data/meshviewer.json", # Hilchenbach
-	"https://mk.map.eulenfunk.de/new/data/meshviewer.json", # Märkischer Kreis
-	"https://rade.map.eulenfunk.de/new/data/meshviewer.json", # Radevormwald
-	"https://siegen.map.eulenfunk.de/new/data/meshviewer.json", # Siegen
-	"https://wup.map.eulenfunk.de/new/data/meshviewer.json", # Wuppertal
+	## Eulenfunk (no active ffeds)
+	#"https://freudenberg.map.eulenfunk.de/new/data/meshviewer.json", # Freudenberg
+	#"https://gek.map.eulenfunk.de/new/data/meshviewer.json", # Gelsenkirchen
+	#"https://hilchenbach.map.eulenfunk.de/new/data/meshviewer.json", # Hilchenbach
+	#"https://mk.map.eulenfunk.de/new/data/meshviewer.json", # Märkischer Kreis
+	#"https://rade.map.eulenfunk.de/new/data/meshviewer.json", # Radevormwald
+	#"https://siegen.map.eulenfunk.de/new/data/meshviewer.json", # Siegen
+	#"https://wup.map.eulenfunk.de/new/data/meshviewer.json", # Wuppertal
 
 	## Flingern
 	"https://karte.ffdus.de/new/data/meshviewer.json",
@@ -62,12 +62,12 @@ dataPaths = [
 	## Gera-Greiz
 	"https://www.freifunk-gera-greiz.de/meshviewer/data/meshviewer.json",
 
-	## Gladbach
-	"https://bgl.map.ffgl.eu/new/data/meshviewer.json", # Bergisch Gladbach
-	"https://bcd.map.ffgl.eu/new/data/meshviewer.json", # Burscheid
-	"https://ode.map.ffgl.eu/new/data/meshviewer.json", # Odenthal
-	"https://rrh.map.ffgl.eu/new/data/meshviewer.json", # Rösrath
-	"https://lln.map.ffgl.eu/new/data/meshviewer.json", # Leichlingen
+	## Gladbach (no active feeds)
+	#"https://bgl.map.ffgl.eu/new/data/meshviewer.json", # Bergisch Gladbach
+	#"https://bcd.map.ffgl.eu/new/data/meshviewer.json", # Burscheid
+	#"https://ode.map.ffgl.eu/new/data/meshviewer.json", # Odenthal
+	#"https://rrh.map.ffgl.eu/new/data/meshviewer.json", # Rösrath
+	#"https://lln.map.ffgl.eu/new/data/meshviewer.json", # Leichlingen
 	
 	## Hannover
 	"https://harvester.ffh.zone/meshviewer.json",
@@ -108,18 +108,18 @@ dataPaths = [
 	## Lueneburg
 	"http://gw4.freifunk-lueneburg.de/meshviewer/data/meshviewer.json",
 
-	## Märkischen Kreis
-	"https://map-altena.freifunk-mk.de/new/data/meshviewer.json", # Altena
-	"https://map-hemer.freifunk-mk.de/new/data/meshviewer.json", # Hemer
-	"https://map-luedenscheid.freifunk-mk.de/new/data/meshviewer.json", 	# Lüdenscheid
-	"https://map-meinerzhagen.freifunk-mk.de/new/data/meshviewer.json", 	# Meinerzhagen
-	"https://map-neuenrade.freifunk-mk.de/new/data/meshviewer.json", 	# Neuenrade
+	## Märkischen Kreis (no active feed)
+	#"https://map-altena.freifunk-mk.de/new/data/meshviewer.json", # Altena
+	#"https://map-hemer.freifunk-mk.de/new/data/meshviewer.json", # Hemer
+	#"https://map-luedenscheid.freifunk-mk.de/new/data/meshviewer.json", 	# Lüdenscheid
+	#"https://map-meinerzhagen.freifunk-mk.de/new/data/meshviewer.json", 	# Meinerzhagen
+	#"https://map-neuenrade.freifunk-mk.de/new/data/meshviewer.json", 	# Neuenrade
 
 	## Mainz, Wiesbaden & Umgebung (MWU)
 	"https://map.freifunk-mwu.de/data/meshviewer.json",
 	
 	## Niersufer
-	"https://hopglass.freifunk-niersufer.de/meshviewer/data/meshviewer.json",
+	"https://map.freifunk-niersufer.de/data/meshviewer.json",
 
 	## Nord
 	"https://mesh.freifunknord.de/data/meshviewer.json",
@@ -127,17 +127,17 @@ dataPaths = [
 	## Nordwest
 	"https://map.ffnw.de/data/meshviewer.json",
 
-	## Neanderfunk
-	"https://han.karte.neanderfunk.de/new/data/meshviewer.json", # Haan
-	"https://hlg.karte.neanderfunk.de/new/data/meshviewer.json", # Heiligenhaus
-	"https://hld.karte.neanderfunk.de/new/data/meshviewer.json", # Hilden
-	"https://erk.karte.neanderfunk.de/new/data/meshviewer.json", # Erkrath
-	"https://lgf.karte.neanderfunk.de/new/data/meshviewer.json", # Langenfeld
-	"https://met.karte.neanderfunk.de/new/data/meshviewer.json", # Mettmann
-	"https://mon.karte.neanderfunk.de/new/data/meshviewer.json", # Monheim
-	"https://rat.karte.neanderfunk.de/new/data/meshviewer.json", # Ratingen
-	"https://vel.karte.neanderfunk.de/new/data/meshviewer.json", # Velbert
-	"https://wlf.karte.neanderfunk.de/new/data/meshviewer.json", # Wülfrath
+	## Neanderfunk (no active feed)
+	#"https://han.karte.neanderfunk.de/new/data/meshviewer.json", # Haan
+	#"https://hlg.karte.neanderfunk.de/new/data/meshviewer.json", # Heiligenhaus
+	#"https://hld.karte.neanderfunk.de/new/data/meshviewer.json", # Hilden
+	#"https://erk.karte.neanderfunk.de/new/data/meshviewer.json", # Erkrath
+	#"https://lgf.karte.neanderfunk.de/new/data/meshviewer.json", # Langenfeld
+	#"https://met.karte.neanderfunk.de/new/data/meshviewer.json", # Mettmann
+	#"https://mon.karte.neanderfunk.de/new/data/meshviewer.json", # Monheim
+	#"https://rat.karte.neanderfunk.de/new/data/meshviewer.json", # Ratingen
+	#"https://vel.karte.neanderfunk.de/new/data/meshviewer.json", # Velbert
+	#"https://wlf.karte.neanderfunk.de/new/data/meshviewer.json", # Wülfrath
 
 	## Trier
 	"http://maps.tackin.de/data/meshviewer.json",
