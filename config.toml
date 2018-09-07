@@ -150,6 +150,9 @@ dataPaths = [
 
 	## Roenkhausen
 	"https://map.roenkhausen.de/meshviewer/data/meshviewer.json",
+	
+	## Ruhrgebiet West
+	"https://map.freifunk.ruhr/data/rgw/meshviewer.json",
 
 	## Suedholstein
 	"https://map.freifunk-suedholstein.de/data/meshviewer.json",
