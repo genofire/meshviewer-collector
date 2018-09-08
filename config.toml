@@ -71,6 +71,7 @@ dataPaths = [
 	
 	## Gütersloh
 	"http://hopglass.4830.org/yanic/ffgt/meshviewer.json",
+	
 	## Hannover
 	"https://harvester.ffh.zone/meshviewer.json",
 	
