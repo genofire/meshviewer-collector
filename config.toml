@@ -101,6 +101,10 @@ dataPaths = [
 
 	## Koeln
 	"https://map.ffkbu.de/data/meshviewer.json",
+	"https://map.ffkbu.de/data-man/meshviewer.json",
+	"https://map.ffkbu.de/data/ffkbub-V2/meshviewer.json",
+	"https://map.ffkbu.de/data/ffkbub/meshviewer.json",
+	"https://map.ffkbu.de/data/ffkw/meshviewer.json",
 	
 	## Koenigswinter
 	"http://map.freifunk-koenigswinter.de/data/meshviewer.json",
