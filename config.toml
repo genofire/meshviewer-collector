@@ -133,7 +133,7 @@ dataPaths = [
 	"https://map.freifunk-niersufer.de/data/meshviewer.json",
 
 	## Nord
-	"https://mesh.freifunknord.de/data/meshviewer.json",
+	"https://mesh.freifunknord.de/data/v2/meshviewer.json",
 
 	## Nordwest
 	"https://map.ffnw.de/data/meshviewer.json",
