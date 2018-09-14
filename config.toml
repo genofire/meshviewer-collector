@@ -69,6 +69,10 @@ dataPaths = [
 	#"https://rrh.map.ffgl.eu/new/data/meshviewer.json", # Rösrath
 	#"https://lln.map.ffgl.eu/new/data/meshviewer.json", # Leichlingen
 	
+	## Greifswald
+	"https://meshviewer2.muehlentor.ffhgw.de/data/meshviewer.json",
+	"https://meshviewer2.muehlentor.ffhgw.de/unifi/meshviewer.json",
+	
 	## Gütersloh
 	"http://hopglass.4830.org/yanic/ffgt/meshviewer.json",
 	
