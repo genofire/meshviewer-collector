@@ -9,7 +9,7 @@ type Config struct {
 
 	IgnoreMeshviewer duration.Duration `toml:"ignore_meshviewer"`
 	IgnoreNode       duration.Duration `toml:"ignore_node"`
-	DataPaths        []string          `toml:"dataPaths"`
+	DataPaths        map[string]string `toml:"dataPaths"`
 
 	StatusJSON string `toml:"status_json"`
 

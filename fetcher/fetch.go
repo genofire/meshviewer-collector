@@ -61,9 +61,9 @@ func (f *Fetcher) fetch() {
 
 	// fetch jsons
 	f.ConfigMutex.Lock()
-	for _, dp := range f.DataPaths {
+	for url, name := range f.DataPaths {
 		wgFetch.Add(1)
-		go func(url string) {
+		go func(url string, name string) {
 			defer wgFetch.Done()
 			logger := log.WithField("url", url)
 			var mv meshviewerFFRGB.Meshviewer
@@ -103,7 +103,7 @@ func (f *Fetcher) fetch() {
 				if node.Lastseen.Before(ignoreNode) {
 					continue
 				}
-				originNode, n := conv.Node(node)
+				originNode, n := conv.Node(node, name)
 				f.database.InsertNode(originNode)
 				neighbours += n
 				count++
@@ -126,7 +126,7 @@ func (f *Fetcher) fetch() {
 				LinksCount:      allLinks,
 			})
 
-		}(dp)
+		}(url, name)
 	}
 	f.ConfigMutex.Unlock()
 

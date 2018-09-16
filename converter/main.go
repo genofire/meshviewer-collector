@@ -71,7 +71,7 @@ func NewConverter(meshviewer *meshviewerFFRGB.Meshviewer) (conv *Converter) {
 	return
 }
 
-func (conv *Converter) Node(node *meshviewerFFRGB.Node) (*yanicRuntime.Node, int) {
+func (conv *Converter) Node(node *meshviewerFFRGB.Node, name string) (*yanicRuntime.Node, int) {
 	now := time.Now()
 	newNode := &yanicRuntime.Node{
 		Nodeinfo: &yanicData.NodeInfo{
@@ -88,7 +88,7 @@ func (conv *Converter) Node(node *meshviewerFFRGB.Node) (*yanicRuntime.Node, int
 			},
 			VPN: node.VPN,
 			System: yanicData.System{
-				SiteCode: node.SiteCode,
+				DomainCode: name + "/" + node.DomainCode,
 			},
 			Software: yanicData.Software{
 				Firmware: node.Firmware,
