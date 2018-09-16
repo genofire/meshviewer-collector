@@ -70,8 +70,8 @@ dataPaths = [
 	#"https://lln.map.ffgl.eu/new/data/meshviewer.json", # Leichlingen
 	
 	## Greifswald
-	"https://meshviewer2.muehlentor.ffhgw.de/data/meshviewer.json",
-	"https://meshviewer2.muehlentor.ffhgw.de/unifi/meshviewer.json",
+	"https://map.ffhgw.de/data/meshviewer.json",
+	"https://unifi.greifswald.freifunk.net/data/meshviewer.json",
 	
 	## Gütersloh
 	"http://hopglass.4830.org/yanic/ffgt/meshviewer.json",
