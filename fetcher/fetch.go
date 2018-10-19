@@ -65,7 +65,10 @@ func (f *Fetcher) fetch() {
 		wgFetch.Add(1)
 		go func(url string, name string) {
 			defer wgFetch.Done()
-			logger := log.WithField("url", url)
+			logger := log.WithFields(map[string]interface{}{
+				"url":  url,
+				"name": name,
+			})
 			var mv meshviewerFFRGB.Meshviewer
 
 			err := runtime.JSONRequest(url, &mv)
@@ -74,7 +77,7 @@ func (f *Fetcher) fetch() {
 					URL:   url,
 					Error: err.Error(),
 				})
-				log.WithField("url", url).Errorf("fetch meshviewer.json failed: %s", err)
+				logger.Errorf("fetch meshviewer.json failed: %s", err)
 				return
 			}
 
@@ -119,6 +122,7 @@ func (f *Fetcher) fetch() {
 
 			status = append(status, &Status{
 				URL:             url,
+				Name:            name,
 				Timestamp:       mv.Timestamp,
 				NodesCount:      count,
 				NodesSkipCount:  allNodes - count,

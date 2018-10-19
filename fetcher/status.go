@@ -4,6 +4,7 @@ import "github.com/FreifunkBremen/yanic/lib/jsontime"
 
 type Status struct {
 	URL             string        `json:"url"`
+	Name            string        `json:"name"`
 	Error           string        `json:"error,omitempty"`
 	Timestamp       jsontime.Time `json:"timestemp"`
 	NodesCount      int           `json:"nodes_count"`
