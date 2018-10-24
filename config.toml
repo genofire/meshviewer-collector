@@ -15,6 +15,9 @@ status_json = "/srv/http/domain/web.fireorbit.de/meshviewer/data/status.json"
 ## Aachen + regio aachen
 "https://data.aachen.freifunk.net/new/meshviewer.json" = "aachen"
 
+## Bodensee
+"https://meta.ffbsee.net/data/meshviewer.json" = "bodensee"
+
 ## Bremen
 "https://downloads.bremen.freifunk.net/data/meshviewer.json" = "bremen"
 
