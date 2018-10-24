@@ -39,7 +39,7 @@ status_json = "/srv/http/domain/web.fireorbit.de/meshviewer/data/status.json"
 "https://map.ff-en.de/data/hat/meshviewer.json" = "hattingen"
 "https://map.ff-en.de/data/spr/meshviewer.json" = "sprockhoevel"
 "https://map.ff-en.de/data/wtt/meshviewer.json" = "wetter"
-"https://map.ff-en.de/data/wit/meshviewer.json" = "Witten"
+"https://map.ff-en.de/data/wit/meshviewer.json" = "witten"
 
 ## Eulenfunk (no active ffeds)
 #"https://freudenberg.map.eulenfunk.de/new/data/meshviewer.json" = "freudenberg"
