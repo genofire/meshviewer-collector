@@ -4,10 +4,11 @@ Documentation=https://github.com/genofire/meshviewer-collector
 After=network.target
 
 [Service]
-User=http
-Group=http
-ExecStart=/usr/local/bin/meshviewer-collector collect --config /opt/meshviewer-collector/config.toml
+User=www-data
+Group=www-data
+ExecStart=/opt/go/bin/meshviewer-collector --config /opt/go/src/github.com/genofire/meshviewer-collector/config.toml collect
 ExecReload=/usr/bin/kill -USR1 $MAINPID
+StandardOutput=null
 
 [Install]
 WantedBy=multi-user.target

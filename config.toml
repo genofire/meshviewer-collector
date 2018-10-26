@@ -3,7 +3,7 @@ run_every = "5m"
 ignore_meshviewer = "6h"
 ignore_node = "3d"
 
-status_json = "/srv/http/domain/web.fireorbit.de/meshviewer/data/status.json"
+status_json = "/var/www/html/collector/status.json"
 
 ##
 # dataPaths
