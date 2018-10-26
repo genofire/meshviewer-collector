@@ -88,7 +88,7 @@ func (conv *Converter) Node(node *meshviewerFFRGB.Node, name string) (*yanicRunt
 			},
 			VPN: node.VPN,
 			System: yanicData.System{
-				DomainCode: name + "/" + node.DomainCode,
+				DomainCode: name,
 			},
 			Software: yanicData.Software{
 				Firmware: node.Firmware,
