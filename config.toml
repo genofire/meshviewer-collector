@@ -116,6 +116,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Koenigswinter
 "http://map.freifunk-koenigswinter.de/data/meshviewer.json" = "koenigswinter"
 
+## Leipzig
+"http://karte.leipzig.freifunk.net:8018/meshviewer2/data/meshviewer.json" = "leipzig"
+
 ## Leverkusen
 "https://map.fflev.de/data/meshviewer.json" = "leverkusen"
 
