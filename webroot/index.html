@@ -1,40 +1,32 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="genofire">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="genofire">
 
-    <title>meshviewer-collector status</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://fooplugins.github.io/FooTable/compiled/footable.bootstrap.min.css" rel="stylesheet">
-  </head>
-
-  <body>
-    <div class="container-fluid">
-      <div class="row">
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom">
-            <h1 class="h2">Meshviewer-Collector status</h1>
-          </div>
+		<title>meshviewer-collector status</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/footable.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
+					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom">
+						<h1 class="h2">Meshviewer-Collector status</h1>
+					</div>
 					<table id="table" class="table table-striped table-sm"></table>
-        </main>
-      </div>
-    </div>
+				</main>
+			</div>
+		</div>
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/moment.js"></script>
+		<script src="js/footable.js"></script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
-		<script src="https://fooplugins.github.io/FooTable/compiled/footable.js"></script>
-
-
-    <script>
+		<script>
 		jQuery(function($){
 			$('#table').footable({
 				"filtering": {
@@ -44,7 +36,8 @@
 					"enabled": true
 				},
 				"columns": [
-					{"name":"url","title":"URL","type":"html","parser":function(e){
+					{"name":"name","title":"Name (Domain)"},
+					{"name":"url","title":"URL","type":"html","breakpoints":"xs","parser":function(e){
 						return '<a href="'+e+'" title="'+e+'">'+e.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i)[1]+'</a>';
 					}},
 					{"name":"timestemp","title":"Timestemp","type":"html","parser":function(e){
@@ -52,18 +45,17 @@
 					}},
 					{"name":"error","title":"Error","type":"html","parser":function(e){
 						if(e)
-							return '<i class="glyphicon glyphicon-alert text-danger" data-toggle="tooltip" data-placement="bottom" title="'+e+'"/> <span class="hidden-sm hidden-md hidden-lg"> '+e+'</span>';
+							return '<i class="glyphicon glyphicon-alert text-danger" data-toggle="tooltip" data-placement="bottom" title="'+e+'"/> '+e;
 						return '';
-					},"breakpoints":"xs"},
+					}},
 					{"name":"nodes_count","title":"Nodes","breakpoints":"xs"},
-					{"name":"nodes_skip_count","title":"Nodes Skipped","breakpoints":"xs sm md"},
-					{"name":"neighbours_count","title":"Neighbours","breakpoints":"xs sm"},
-					{"name":"links_count","title":"Links","breakpoints":"xs"},
-					{"name":"name","title":"Name (Domain)","breakpoints":"xs"},
+					{"name":"nodes_skip_count","title":"Nodes Skipped","breakpoints":"xs"},
+					{"name":"neighbours_count","title":"Neighbours","breakpoints":"xs sm md"},
+					{"name":"links_count","title":"Links","breakpoints":"xs sm md"},
 				],
 				"rows": $.getJSON('status.json')
 			});
 		});
-    </script>
-  </body>
+		</script>
+	</body>
 </html>
