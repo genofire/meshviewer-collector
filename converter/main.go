@@ -86,7 +86,7 @@ func (conv *Converter) Node(node *meshviewerFFRGB.Node, name string) (*yanicRunt
 				Addresses: node.Addresses,
 				Mesh:      make(map[string]*yanicData.NetworkInterface),
 			},
-			VPN: node.VPN,
+			VPN: node.IsGateway,
 			System: yanicData.System{
 				DomainCode: name,
 			},
