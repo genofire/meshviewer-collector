@@ -103,7 +103,7 @@ func (conv *Converter) Node(node *meshviewerFFRGB.Node, name string) (*yanicRunt
 		},
 		Statistics: &yanicData.Statistics{
 			NodeID: node.NodeID,
-			Uptime: float64(node.Uptime.Unix() - now.Unix()),
+			Uptime: float64(now.Unix() - node.Uptime.Unix()),
 			Clients: yanicData.Clients{
 				Total:  node.Clients,
 				Wifi:   node.Clients - node.ClientsOthers,
