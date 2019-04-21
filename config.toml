@@ -200,6 +200,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Suedholstein
 "https://map.freifunk-suedholstein.de/data/meshviewer.json" = "suedholstein"
 
+## Suedpfalz
+"https://new.freifunk-suedpfalz.de/netzausbau/data/meshviewer.json" = "suedpfalz"
+
 ## Troisdorf
 "https://map.freifunk-troisdorf.de/data/tdf4/meshviewer.json" = "troisdorf"
 
