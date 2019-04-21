@@ -135,6 +135,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Mainz, Wiesbaden & Umgebung (MWU)
 "https://map.freifunk-mwu.de/data/meshviewer.json" = "mwu"
 
+## Muenchen 
+"https://map.ffmuc.net/yanic/meshviewer.json" = "muenchen"
+
 ## Niersufer
 "https://map.freifunk-niersufer.de/data/meshviewer.json" = "niersufer"
 
