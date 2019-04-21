@@ -141,6 +141,10 @@ status_json = "/var/www/html/collector/status.json"
 ## Muenchen 
 "https://map.ffmuc.net/yanic/meshviewer.json" = "muenchen"
 
+## Müritz / Feldberg
+"http://hopglass.4830.org/yanic/muer/meshviewer.json" ~ "mueritz"
+"http://hopglass.4830.org/yanic/tng/meshviewer.json" ~ "mueritz"
+
 ## Niersufer
 "https://map.freifunk-niersufer.de/data/meshviewer.json" = "niersufer"
 
