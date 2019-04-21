@@ -209,6 +209,10 @@ status_json = "/var/www/html/collector/status.json"
 
 ## Troisdorf
 "https://map.freifunk-troisdorf.de/data/tdf4/meshviewer.json" = "troisdorf"
+"https://map.freifunk-troisdorf.de/data/tdf5/meshviewer.json" = "troisdorf"
+"https://map.freifunk-troisdorf.de/data/tdf6/meshviewer.json" = "troisdorf"
+"https://map.freifunk-troisdorf.de/data/tdf7/meshviewer.json" = "troisdorf"
+"https://map.freifunk-troisdorf.de/data/tdf4/meshviewer.json" = "troisdorf"
 
 ## Tuttlingen
 "https://map.freifunk-3laendereck.net/map-data/fftut/meshviewer.json" = "tuttlingen"
