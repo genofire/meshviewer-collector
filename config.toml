@@ -183,6 +183,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Regensburg
 "https://regensburg.freifunk.net/data/meshviewer.json" = "regensburg"
 
+## Remscheid
+"https://map.rs.freifunk.net/data/meshviewer.json" = "Remscheid"
+
 ## Rhein-Neckar
 "https://map.ffrn.de/data/meshviewer.json" = "rhein-neckar"
 
