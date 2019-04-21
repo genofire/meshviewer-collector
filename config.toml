@@ -9,6 +9,9 @@ status_json = "/var/www/html/collector/status.json"
 # dataPaths
 
 [dataPaths]
+## 3 Laendereck
+"https://map.freifunk-3laendereck.net/data/meshviewer.json" = "3laendereck"
+
 ## Altdorf
 "https://map.tecff.de/yanic/meshviewer.json" = "altdorf"
 
