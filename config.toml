@@ -206,6 +206,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Troisdorf
 "https://map.freifunk-troisdorf.de/data/tdf4/meshviewer.json" = "troisdorf"
 
+## Tuttlingen
+"https://map.freifunk-3laendereck.net/map-data/fftut/meshviewer.json" = "tuttlingen"
+
 ## Uelzen (no active feed)
 # "https://map.ffue.eu/data/meshviewer.json" = "uelzen"
 
