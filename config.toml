@@ -28,7 +28,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://meshviewer.darmstadt.freifunk.net/data/meshviewer.json" = "darmstadt"
 
 ## Einbeck
-"http://vpn1.freifunk-einbeck.de/meshviewer/data/meshviewer.json" = "einbeck"
+"http://vps643489.ovh.net/meshviewer/data/meshviewer.json" = "einbeck"
 
 ## Erfurt
 "https://map.erfurt.freifunk.net/data/meshviewer.json" = "erfurt"
