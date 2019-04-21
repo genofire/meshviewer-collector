@@ -162,6 +162,9 @@ status_json = "/var/www/html/collector/status.json"
 #"https://vel.karte.neanderfunk.de/new/data/meshviewer.json" = "velbert"
 #"https://wlf.karte.neanderfunk.de/new/data/meshviewer.json" = "wuelfrath"
 
+## Ostholstein
+"https://coco.ffoh.de/meshviewer/data/meshviewer.json" = "ostholstein"
+
 ## Trier
 "http://maps.tackin.de/data/meshviewer.json" = "trier"
 
