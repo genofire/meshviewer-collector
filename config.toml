@@ -39,6 +39,7 @@ status_json = "/var/www/html/collector/status.json"
 ## Ennepe-Ruhr-Kreis
 "https://map.ff-en.de/data/ept/meshviewer.json" = "ennepetal"
 "https://map.ff-en.de/data/en/meshviewer.json" = "en-kreis"
+"https://map.ff-en.de/data/ha/meshviewer.json" = "hagen"
 "https://map.ff-en.de/data/hat/meshviewer.json" = "hattingen"
 "https://map.ff-en.de/data/spr/meshviewer.json" = "sprockhoevel"
 "https://map.ff-en.de/data/wtt/meshviewer.json" = "wetter"
