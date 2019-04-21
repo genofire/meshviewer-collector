@@ -71,7 +71,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://yanic.batman15.ffffm.net/meshviewer.json" = "frankfurt"
 
 ## Gera-Greiz
-"https://www.freifunk-gera-greiz.de/meshviewer/data/meshviewer.json" ="gera-greiz"
+"https://www.freifunk-gera-greiz.de/meshviewer/data/meshviewer.json" = "gera-greiz"
 
 ## Gladbach (no active feeds)
 #"https://bgl.map.ffgl.eu/new/data/meshviewer.json" = "bergisch-gladbach"
@@ -184,7 +184,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://regensburg.freifunk.net/data/meshviewer.json" = "regensburg"
 
 ## Remscheid
-"https://map.rs.freifunk.net/data/meshviewer.json" = "Remscheid"
+"https://map.rs.freifunk.net/data/meshviewer.json" = "remscheid"
 
 ## Rhein-Neckar
 "https://map.ffrn.de/data/meshviewer.json" = "rhein-neckar"
@@ -233,7 +233,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://mapdata.freifunk-vogtland.net/meshviewer.json" = "vogtland"
 
 ## Wels
-"http://leto.wels.funkfeuer.at:8080/meshviewer/data/meshviewer.json"  = "wels"
+"http://leto.wels.funkfeuer.at:8080/meshviewer/data/meshviewer.json" = "wels"
 
 ## Winterberg
 "https://map.freifunk-winterberg.net/data/wtbg/meshviewer.json" = "winterberg"
