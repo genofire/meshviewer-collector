@@ -18,6 +18,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Aachen + regio aachen
 "https://data.aachen.freifunk.net/new/meshviewer.json" = "aachen"
 
+## Bielefeld
+"https://map.freifunk-bielefeld.de/meshviewer/data/meshviewer.json" = "bielefeld"
+
 ## Bodensee
 "https://meta.ffbsee.net/data/meshviewer.json" = "bodensee"
 
