@@ -114,6 +114,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Karlsruhe
 "https://api.karlsruhe.freifunk.net/yanic/meshviewer/meshviewer.json" = "karlsruhe"
 
+## Kitzingen
+"https://map.freifunk-kitzingen.de/data/meshviewer.json" = "kitzingen"
+
 ## Koeln
 "https://map.ffkbu.de/data/meshviewer.json" = "koeln"
 "https://map.ffkbu.de/data-man/meshviewer.json" = "koeln"
