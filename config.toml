@@ -133,6 +133,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Leverkusen
 "https://map.fflev.de/data/meshviewer.json" = "leverkusen"
 
+## Lippe
+"https://karte.freifunk-owl.de/data/meshviewer.json" = "lippe"
+
 ## Lueneburg
 "http://gw4.freifunk-lueneburg.de/meshviewer/data/meshviewer.json" = "lueneburg"
 
