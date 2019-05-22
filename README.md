@@ -10,4 +10,4 @@ After all, it configured the mesh viewer by templating.
 Fell free to create a pull request for your community,
 just edit `config.toml` - a webhook put it direct online.
 
-Last show if your community was fetched correct on [**status-page**](https://data.meshviewer.org/collector/).
+Last show if your community was fetched correct on [**status**](https://data.meshviewer.org/collector/) of [multi.meshviewer.org](https://multi.meshviewer.org/).
