@@ -151,6 +151,7 @@ status_json = "/var/www/html/collector/status.json"
 
 ## Muenchen 
 "https://map.ffmuc.net/yanic/meshviewer.json" = "muenchen"
+"https://gw02.ext.ffmuc.net/meshviewer.json" = "muenchen"
 
 ## Müritz / Feldberg
 "http://hopglass.4830.org/yanic/muer/meshviewer.json" = "mueritz"
