@@ -74,7 +74,7 @@ func NewConverter(meshviewer *meshviewerFFRGB.Meshviewer) (conv *Converter) {
 func (conv *Converter) Node(node *meshviewerFFRGB.Node, name string) (*yanicRuntime.Node, int) {
 	now := time.Now()
 	newNode := &yanicRuntime.Node{
-		Nodeinfo: &yanicData.NodeInfo{
+		Nodeinfo: &yanicData.Nodeinfo{
 			NodeID:   node.NodeID,
 			Hostname: node.Hostname,
 			Hardware: yanicData.Hardware{
