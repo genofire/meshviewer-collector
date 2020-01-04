@@ -85,6 +85,7 @@ status_json = "/var/www/html/collector/status.json"
 
 ## Greifswald
 "https://map.ffhgw.de/data/meshviewer.json" = "greifswald"
+"https://yanic.wieckertor.ffhgw.de/data/meshviewer.json" = "greifswald"
 "https://unifi.greifswald.freifunk.net/data/meshviewer.json" = "greifswald"
 
 ## Gütersloh
