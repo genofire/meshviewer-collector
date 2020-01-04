@@ -118,14 +118,12 @@ status_json = "/var/www/html/collector/status.json"
 "https://map.freifunk-kitzingen.de/data/meshviewer.json" = "kitzingen"
 
 ## Koeln
-"https://map.ffkbu.de/data/meshviewer.json" = "koeln"
-"https://map.ffkbu.de/data-man/meshviewer.json" = "koeln"
-"https://map.ffkbu.de/data/ffkbub-V2/meshviewer.json" = "koeln"
-"https://map.ffkbu.de/data/ffkbub/meshviewer.json" = "koeln"
-"https://map.ffkbu.de/data/ffkw/meshviewer.json" = "koeln"
-
-## Koenigswinter
-"http://map.freifunk-koenigswinter.de/data/meshviewer.json" = "koenigswinter"
+"https://map.kbu.freifunk.net/data/ffkbub-V2/meshviewer.json" = "koeln"
+"https://map.kbu.freifunk.net/data/ffkbub/meshviewer.json" = "koeln"
+"https://map.kbu.freifunk.net/data/ffkw/meshviewer.json" = "koeln"
+"https://map.kbu.freifunk.net/data/ffkbuk/meshviewer.json" = "koeln"
+"https://map.kbu.freifunk.net/data/ffkbuu/meshviewer.json" = "koeln"
+"https://map.kbu.freifunk.net/data/ffeu/meshviewer.json" = "koeln"
 
 ## Leipzig
 "http://karte.leipzig.freifunk.net:8018/meshviewer2/data/meshviewer.json" = "leipzig"
