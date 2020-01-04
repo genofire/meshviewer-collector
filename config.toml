@@ -30,6 +30,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Darmstadt
 "https://meshviewer.darmstadt.freifunk.net/data/meshviewer.json" = "darmstadt"
 
+## Duesseldorf
+"https://map.freifunk-duesseldorf.de/data/meshviewer.json" = "duesseldorf"
+
 ## Einbeck
 "http://vps643489.ovh.net/meshviewer/data/meshviewer.json" = "einbeck"
 
