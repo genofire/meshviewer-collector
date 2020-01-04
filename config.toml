@@ -22,7 +22,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://map.freifunk-bielefeld.de/meshviewer/data/meshviewer.json" = "bielefeld"
 
 ## Bodensee
-"https://meta.ffbsee.net/data/meshviewer.json" = "bodensee"
+"https://mate.ffbsee.net/data/meshviewer.json" = "bodensee"
 
 ## Bremen
 "https://downloads.bremen.freifunk.net/data/meshviewer.json" = "bremen"
