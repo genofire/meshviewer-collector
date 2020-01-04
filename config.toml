@@ -73,6 +73,9 @@ status_json = "/var/www/html/collector/status.json"
 "https://yanic.ffm.freifunk.net/meshviewer.json" = "frankfurt"
 "https://yanic.batman15.ffffm.net/meshviewer.json" = "frankfurt"
 
+## Fulda
+"https://meshviewer.fulda.freifunk.net/data/meshviewer.json" = "fulda"
+
 ## Gera-Greiz
 "https://www.freifunk-gera-greiz.de/meshviewer/data/meshviewer.json" = "gera-greiz"
 
