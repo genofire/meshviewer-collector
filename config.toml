@@ -16,7 +16,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://map.tecff.de/yanic/meshviewer.json" = "altdorf"
 
 ## Aachen + regio aachen
-"https://data.aachen.freifunk.net/new/meshviewer.json" = "aachen"
+"https://data.aachen.freifunk.net/meshviewer.json" = "aachen"
 
 ## Bielefeld
 "https://map.freifunk-bielefeld.de/meshviewer/data/meshviewer.json" = "bielefeld"
