@@ -249,8 +249,8 @@ status_json = "/var/www/html/collector/status.json"
 "https://map.freifunk-winterberg.net/data/doerfer/meshviewer.json" = "winterberg"
 "https://map.freifunk-winterberg.net/data/hlb/meshviewer.json" = "winterberg"
 
-## Westpfalz (merged with karlsruhe)
-# "https://map.freifunk-westpfalz.de/data/meshviewer.json" = "westpfalz"
+## Westpfalz
+"https://map.freifunk-westpfalz.de/data/meshviewer.json" = "westpfalz"
 
 
 [yanic_connection]
