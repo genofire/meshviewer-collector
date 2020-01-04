@@ -168,6 +168,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Nord
 "https://mesh.freifunknord.de/data/v2/meshviewer.json" = "nord"
 
+## Nordheide
+"http://map.freifunk-nordheide.de/data/meshviewer.json" = "nordheide"
+
 ## Nordwest
 "https://map.ffnw.de/data/meshviewer.json" = "nordwest"
 
