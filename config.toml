@@ -229,8 +229,8 @@ status_json = "/var/www/html/collector/status.json"
 ## Tuttlingen
 "https://map.freifunk-3laendereck.net/map-data/fftut/meshviewer.json" = "tuttlingen"
 
-## Uelzen (no active feed)
-# "https://map.ffue.eu/data/meshviewer.json" = "uelzen"
+## Uelzen
+"https://map.ffue.eu/data/meshviewer.json" = "uelzen"
 
 ## Ulm
 "https://map11.freifunk-ulm.de/data/meshviewer.json" = "ulm"
