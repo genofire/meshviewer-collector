@@ -233,7 +233,7 @@ status_json = "/var/www/html/collector/status.json"
 # "https://map.ffue.eu/data/meshviewer.json" = "uelzen"
 
 ## Ulm
-"https://map10.freifunk-ulm.de/data/meshviewer.json" = "ulm"
+"https://map11.freifunk-ulm.de/data/meshviewer.json" = "ulm"
 
 ## Vogtland
 "https://mapdata.freifunk-vogtland.net/meshviewer.json" = "vogtland"
