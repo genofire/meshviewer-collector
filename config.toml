@@ -117,6 +117,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Kitzingen
 "https://map.freifunk-kitzingen.de/data/meshviewer.json" = "kitzingen"
 
+## Koblenz
+"https://status.freifunk-myk.de/data/meshviewer.json" = "mayen-koblenz"
+
 ## Koeln
 "https://map.kbu.freifunk.net/data/ffkbub-V2/meshviewer.json" = "koeln"
 "https://map.kbu.freifunk.net/data/ffkbub/meshviewer.json" = "koeln"
