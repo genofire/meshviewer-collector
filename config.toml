@@ -158,6 +158,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://gw02.ext.ffmuc.net/meshviewer.json" = "muenchen"
 
 ## Müritz / Feldberg
+"http://hopglass.4830.org/yanic/ffgt/meshviewer.json" = "mueritz"
 "http://hopglass.4830.org/yanic/muer/meshviewer.json" = "mueritz"
 "http://hopglass.4830.org/yanic/tng/meshviewer.json" = "mueritz"
 
