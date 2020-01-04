@@ -260,7 +260,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://map.freifunk-winterberg.net/data/hlb/meshviewer.json" = "winterberg"
 
 ## Westpfalz
-"https://map.freifunk-westpfalz.de/data/meshviewer.json" = "westpfalz"
+"https://api.karlsruhe.freifunk.net/yanic/meshviewer/ffwp/meshviewer.json" = "westpfalz"
 
 
 [yanic_connection]
