@@ -1,61 +1,124 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="genofire">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="genofire">
 
-		<title>meshviewer-collector status</title>
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/footable.css" rel="stylesheet">
-	</head>
-	<body>
-		<div class="container-fluid">
-			<div class="row">
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
-					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom">
-						<h1 class="h2">Meshviewer-Collector status</h1>
-					</div>
-					<table id="table" class="table table-striped table-sm"></table>
-				</main>
-			</div>
-		</div>
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.js"></script>
-		<script src="js/moment.js"></script>
-		<script src="js/footable.js"></script>
+    <title>meshviewer-collector status</title>
 
-		<script>
-		jQuery(function($){
-			$('#table').footable({
-				"filtering": {
-					"enabled": true
-				},
-				"sorting": {
-					"enabled": true
-				},
-				"columns": [
-					{"name":"name","title":"Name (Domain)"},
-					{"name":"url","title":"URL","type":"html","breakpoints":"xs","parser":function(e){
-						return '<a href="'+e+'" title="'+e+'">'+e.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i)[1]+'</a>';
-					}},
-					{"name":"timestemp","title":"Timestemp","type":"html","parser":function(e){
-						return '<span title="'+ e +'">'+moment(e).fromNow(true)+'</span>';
-					}},
-					{"name":"error","title":"Error","type":"html","parser":function(e){
-						if(e)
-							return '<i class="glyphicon glyphicon-alert text-danger" data-toggle="tooltip" data-placement="bottom" title="'+e+'"/> '+e;
-						return '';
-					}},
-					{"name":"nodes_count","title":"Nodes","breakpoints":"xs"},
-					{"name":"nodes_skip_count","title":"Nodes Skipped","breakpoints":"xs"},
-					{"name":"neighbours_count","title":"Neighbours","breakpoints":"xs sm md"},
-					{"name":"links_count","title":"Links","breakpoints":"xs sm md"},
-				],
-				"rows": $.getJSON('status.json')
-			});
-		});
-		</script>
-	</body>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <main role="main" class="col mt-3">
+            <h1 class="h2 border-dark border-bottom d-inline">Meshviewer-Collector status <small class="h6 text-muted"> Updated <span
+                    class="last-update"></span></small></h1>
+
+            <table id="table" class="table-striped table-sm">
+                <thead>
+                <tr>
+                    <th>Name (Domain)</th>
+                    <th>URL</th>
+                    <th>timestemp</th>
+                    <th>Error</th>
+                    <th>Nodes</th>
+                    <th>Nodes Skipped</th>
+                    <th>Neighbours</th>
+                    <th>Links</th>
+                </tr>
+                </thead>
+
+            </table>
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap4.min.js"></script>
+
+
+<script>
+    // Avoid momentJs for one function
+    const timeAgo = (() => {
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+
+        const thresholds = [
+            {threshold: 540 * day, modifier: 365 * day, render: elapsed => `${elapsed} years`},
+            {threshold: 320 * day, render: () => '1 year'},
+            {threshold: 45 * day, modifier: 30 * day, render: elapsed => `${elapsed} months`},
+            {threshold: 26 * day, render: () => '1 month'},
+            {threshold: 36 * hour, modifier: 24 * hour, render: elapsed => `${elapsed} days`},
+            {threshold: 22 * hour, render: () => '1 day'},
+            {threshold: 90 * minute, modifier: 60 * minute, render: elapsed => `${elapsed} hours`},
+            {threshold: 45 * minute, render: () => '1 hour'},
+            {threshold: 90 * second, modifier: 60 * second, render: elapsed => `${elapsed} minutes`},
+            {threshold: 46 * second, render: () => `1 minute`},
+            {threshold: 0, render: () => 'a few seconds ago'},
+        ];
+
+        return date => {
+            const elapsed = Math.round(new Date() - date);
+            const {render, modifier} = thresholds.find(({threshold}) => elapsed >= threshold);
+            return render(Math.round(elapsed / modifier))
+        }
+    })();
+
+    $(document).ready(function () {
+        let table = $('#table').DataTable({
+            "paging": false,
+            "ajax": {
+                "url": "status.json",
+                "dataSrc": function (json) {
+                    for (let i = 0, ien = json.length; i < ien; i++) {
+                        json[i]['url'] = '<a href="' + json[i]['url'] + '" title="' + json[i]['url'] + '">' + json[i]['url'].match(/^https?:\/\/([^\/?#]+)(?:[\/?#]|$)/i)[1] + '</a>';
+
+                        if (json[i]['error'] === undefined) {
+                            json[i]['error'] = '';
+                        } else {
+                            json[i]['error'] = '<span class="text-muted small"> ' + json[i]['error'] + '</span>'
+                        }
+
+                        let date = new Date(json[i]['timestemp']);
+                        json[i]['timestemp'] = '<span title="' + json[i]['timestemp'] + '">' + timeAgo(date) + '</span>';
+
+                    }
+                    return json;
+                }
+            },
+            "columns": [
+                {"data": "name"},
+                {"data": "url"},
+                {"data": "error"},
+                {"data": "timestemp"},
+                {"data": "nodes_count"},
+                {"data": "nodes_skip_count"},
+                {"data": "neighbours_count"},
+                {"data": "links_count"}
+            ]
+        });
+        document.querySelector('.last-update').textContent = new Date().toUTCString();
+
+        // reload css ever
+        setInterval(function () {
+            table.ajax.reload(null, false);
+            document.querySelector('.last-update').textContent = new Date().toUTCString();
+        }, 30000);
+
+    });
+</script>
+</body>
 </html>
