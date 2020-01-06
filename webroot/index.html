@@ -67,7 +67,7 @@
             {threshold: 45 * minute, render: () => '1 hour'},
             {threshold: 90 * second, modifier: 60 * second, render: elapsed => `${elapsed} minutes`},
             {threshold: 46 * second, render: () => `1 minute`},
-            {threshold: 0, render: () => 'a few seconds ago'},
+            {threshold: 0, render: () => 'few seconds'},
         ];
 
         return date => {
