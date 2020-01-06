@@ -192,9 +192,6 @@ status_json = "/var/www/html/collector/status.json"
 ## Ostholstein
 "https://coco.ffoh.de/meshviewer/data/meshviewer.json" = "ostholstein"
 
-## Trier
-"http://maps.tackin.de/data/meshviewer.json" = "trier"
-
 ## Regensburg
 "https://regensburg.freifunk.net/data/meshviewer.json" = "regensburg"
 
