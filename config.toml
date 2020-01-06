@@ -9,8 +9,8 @@ status_json = "/var/www/html/collector/status.json"
 # dataPaths
 
 [dataPaths]
-## 3 Laendereck
-"https://map.freifunk-3laendereck.net/data/meshviewer.json" = "3laendereck"
+## 3 Laendereck (invlaid format - non-standard)
+# "https://map.freifunk-3laendereck.net/data/meshviewer.json" = "3laendereck"
 
 ## Altdorf
 "https://map.tecff.de/yanic/meshviewer.json" = "altdorf"
@@ -18,14 +18,14 @@ status_json = "/var/www/html/collector/status.json"
 ## Aachen + regio aachen
 "https://data.aachen.freifunk.net/meshviewer.json" = "aachen"
 
-## Bielefeld
-"https://map.freifunk-bielefeld.de/meshviewer/data/meshviewer.json" = "bielefeld"
+## Bielefeld (invlaid format - non-standard)
+# "https://map.freifunk-bielefeld.de/meshviewer/data/meshviewer.json" = "bielefeld"
 
-## Bodensee
+## Bodensee (invlaid format - non-standard)
 "https://mate.ffbsee.net/data/meshviewer.json" = "bodensee"
 
 ## Bremen
-"https://downloads.bremen.freifunk.net/data/meshviewer.json" = "bremen"
+# "https://downloads.bremen.freifunk.net/data/meshviewer.json" = "bremen"
 
 ## Darmstadt
 "https://meshviewer.darmstadt.freifunk.net/data/meshviewer.json" = "darmstadt"
@@ -97,8 +97,8 @@ status_json = "/var/www/html/collector/status.json"
 ## Hannover
 "https://harvester.ffh.zone/meshviewer.json" = "hannover"
 
-## Hennef
-"https://map.freifunk-hennef.de/yanic/meshviewer.json" = "hennef"
+## Hennef (no active yanic - old file)
+# "https://map.freifunk-hennef.de/yanic/meshviewer.json" = "hennef"
 
 ## Hochstift
 "https://map.hochstift.freifunk.net/data/pad-cty/meshviewer.json" = "hochstift"
@@ -115,8 +115,8 @@ status_json = "/var/www/html/collector/status.json"
 ## Iserlohn (no active feed)
 #"https://map.freifunk-iserlohn.de/new/data/meshviewer.json" = "iserlohn"
 
-## Kiel
-"https://map.freifunk.in-kiel.de/yanic/meshviewer.json" = "kiel"
+## Kiel (no yanic/meshviewer.json)
+# "https://map.freifunk.in-kiel.de/yanic/meshviewer.json" = "kiel"
 
 ## Karlsruhe
 "https://api.karlsruhe.freifunk.net/yanic/meshviewer/meshviewer.json" = "karlsruhe"
@@ -198,8 +198,8 @@ status_json = "/var/www/html/collector/status.json"
 ## Regensburg
 "https://regensburg.freifunk.net/data/meshviewer.json" = "regensburg"
 
-## Remscheid
-"https://map.rs.freifunk.net/data/meshviewer.json" = "remscheid"
+## Remscheid (looks dead - domain unused)
+# "https://map.rs.freifunk.net/data/meshviewer.json" = "remscheid"
 
 ## Rhein-Neckar
 "https://map.ffrn.de/data/meshviewer.json" = "rhein-neckar"
@@ -239,14 +239,14 @@ status_json = "/var/www/html/collector/status.json"
 "https://map.freifunk-troisdorf.de/data/tdf6/meshviewer.json" = "troisdorf"
 "https://map.freifunk-troisdorf.de/data/tdf7/meshviewer.json" = "troisdorf"
 
-## Tuttlingen
-"https://map.freifunk-3laendereck.net/map-data/fftut/meshviewer.json" = "tuttlingen"
+## Tuttlingen (invlaid format - non-standard)
+# "https://map.freifunk-3laendereck.net/map-data/fftut/meshviewer.json" = "tuttlingen"
 
-## Uelzen
-"https://map.ffue.eu/data/meshviewer.json" = "uelzen"
+## Uelzen (no meshviwer json - looks like an really old yanic)
+# "https://map.ffue.eu/data/meshviewer.json" = "uelzen"
 
-## Ulm
-"https://map11.freifunk-ulm.de/data/meshviewer.json" = "ulm"
+## Ulm (invlaid format - non-standard)
+# "https://map11.freifunk-ulm.de/data/meshviewer.json" = "ulm"
 
 ## Vogtland
 "https://mapdata.freifunk-vogtland.net/meshviewer.json" = "vogtland"
