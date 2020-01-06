@@ -25,7 +25,7 @@ status_json = "/var/www/html/collector/status.json"
 # "https://mate.ffbsee.net/data/meshviewer.json" = "bodensee"
 
 ## Bremen
-# "https://downloads.bremen.freifunk.net/data/meshviewer.json" = "bremen"
+"https://downloads.bremen.freifunk.net/data/meshviewer.json" = "bremen"
 
 ## Darmstadt
 "https://meshviewer.darmstadt.freifunk.net/data/meshviewer.json" = "darmstadt"
