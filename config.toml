@@ -115,7 +115,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://map.hochstift.freifunk.net/data/uml/meshviewer.json" = "hochstift"
 
 ## Ingolstad"
-"https://map.freifunk-ingolstadt.de/yanic/meshviewer.json" = "ingolstadt'
+"https://map.freifunk-ingolstadt.de/yanic/meshviewer.json" = "ingolstadt"
 
 ## Iserlohn (no active feed)
 #"https://map.freifunk-iserlohn.de/new/data/meshviewer.json" = "iserlohn"
