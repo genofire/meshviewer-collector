@@ -73,7 +73,6 @@ status_json = "/var/www/html/collector/status.json"
 "https://map.freifunk-fkb.de/data/bw/meshviewer.json" = "frankenberg"
 
 ## Frankfurt
-"https://yanic.ffm.freifunk.net/meshviewer.json" = "frankfurt"
 "https://yanic.batman15.ffffm.net/meshviewer.json" = "frankfurt"
 
 ## Fulda
@@ -131,12 +130,11 @@ status_json = "/var/www/html/collector/status.json"
 "https://status.freifunk-myk.de/data/meshviewer.json" = "mayen-koblenz"
 
 ## Koeln
+"https://map.kbu.freifunk.net/data/ffeu/meshviewer.json" = "koeln"
 "https://map.kbu.freifunk.net/data/ffkbub-V2/meshviewer.json" = "koeln"
 "https://map.kbu.freifunk.net/data/ffkbub/meshviewer.json" = "koeln"
-"https://map.kbu.freifunk.net/data/ffkw/meshviewer.json" = "koeln"
 "https://map.kbu.freifunk.net/data/ffkbuk/meshviewer.json" = "koeln"
 "https://map.kbu.freifunk.net/data/ffkbuu/meshviewer.json" = "koeln"
-"https://map.kbu.freifunk.net/data/ffeu/meshviewer.json" = "koeln"
 
 ## Leipzig
 "http://karte.leipzig.freifunk.net:8018/meshviewer2/data/meshviewer.json" = "leipzig"
@@ -208,12 +206,16 @@ status_json = "/var/www/html/collector/status.json"
 "https://map.freifunk-rhein-sieg.net/data/tdf4/tdf/meshviewer.json" = "rhein-sieg"
 "https://map.freifunk-rhein-sieg.net/data/tdf5/inn/meshviewer.json" = "rhein-sieg"
 "https://map.freifunk-rhein-sieg.net/data/tdf6/flu/meshviewer.json" = "rhein-sieg"
-"https://map.freifunk-rhein-sieg.net/data/fgw02/domain01/meshviewer.json" = "rhein-sieg"
-"https://map.freifunk-rhein-sieg.net/data/fgw02/domain03/meshviewer.json" = "rhein-sieg"
-"https://map.freifunk-rhein-sieg.net/data/fgw03/domain04/meshviewer.json" = "rhein-sieg"
-"https://map.freifunk-rhein-sieg.net/data/fgw03/domain05/meshviewer.json" = "rhein-sieg"
-"https://map.freifunk-rhein-sieg.net/data/fgw04/domain11/meshviewer.json" = "rhein-sieg"
-"https://map.freifunk-rhein-sieg.net/data/fgw04/domain14/meshviewer.json" = "rhein-sieg"
+"https://map.freifunk-rhein-sieg.net/data/siegburg1/domain01/meshviewer.json" = "rhein-sieg"
+"https://map.freifunk-rhein-sieg.net/data/siegburg2/domain02/meshviewer.json" = "rhein-sieg"
+"https://map.freifunk-rhein-sieg.net/data/siegburg2/domain05/meshviewer.json" = "rhein-sieg"
+"https://map.freifunk-rhein-sieg.net/data/lohmar1/domain01/meshviewer.json" = "rhein-sieg"
+"https://map.freifunk-rhein-sieg.net/data/lohmar1/domain03/meshviewer.json" = "rhein-sieg"
+"https://map.freifunk-rhein-sieg.net/data/lohmar2/domain05/meshviewer.json" = "rhein-sieg"
+"https://map.freifunk-rhein-sieg.net/data/lohmar3/domain04/meshviewer.json" = "rhein-sieg"
+"https://map.freifunk-rhein-sieg.net/data/lohmar3/domain07/meshviewer.json" = "rhein-sieg"
+"https://map.freifunk-rhein-sieg.net/data/lohmar3/domain11/meshviewer.json" = "rhein-sieg"
+"https://map.freifunk-rhein-sieg.net/data/voreifel1/domain15/meshviewer.json" = "rhein-sieg"
 
 ## Roenkhausen
 "https://map.roenkhausen.de/meshviewer/data/meshviewer.json" = "roenkhausen"
