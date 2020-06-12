@@ -223,6 +223,9 @@ status_json = "/var/www/html/collector/status.json"
 ## Roenkhausen
 "https://map.roenkhausen.de/meshviewer/data/meshviewer.json" = "roenkhausen"
 
+## Rothenburg
+"https://netmon.freifunk-rothenburg.de/meshviewer/data/meshviewer.json" = "rothenburg"
+
 ## Ruhrgebiet West
 "https://map.freifunk.ruhr/data/rgw/meshviewer.json" = "ruhr"
 
