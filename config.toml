@@ -40,19 +40,13 @@ status_json = "/var/www/html/collector/status.json"
 "http://vps643489.ovh.net/meshviewer/data/meshviewer.json" = "einbeck"
 
 ## Erfurt
-"https://map.erfurt.freifunk.net/data/meshviewer.json" = "erfurt"
+"https://map.erfurt.freifunk.net/meshviewer/data/meshviewer.json" = "erfurt"
 
 ## Essen
 "https://map.freifunk-essen.de/data/meshviewer.json" = "essen"
 
 ## Ennepe-Ruhr-Kreis
-"https://map.ff-en.de/data/ept/meshviewer.json" = "ennepetal"
-"https://map.ff-en.de/data/en/meshviewer.json" = "en-kreis"
-"https://map.ff-en.de/data/ha/meshviewer.json" = "hagen"
-"https://map.ff-en.de/data/hat/meshviewer.json" = "hattingen"
-"https://map.ff-en.de/data/spr/meshviewer.json" = "sprockhoevel"
-"https://map.ff-en.de/data/wtt/meshviewer.json" = "wetter"
-"https://map.ff-en.de/data/wit/meshviewer.json" = "witten"
+"https://karte.ff-en.de/data/meshviewer.json" = "en-kreis"
 
 ## Eulenfunk (no active ffeds)
 #"https://freudenberg.map.eulenfunk.de/new/data/meshviewer.json" = "freudenberg"
@@ -65,12 +59,6 @@ status_json = "/var/www/html/collector/status.json"
 
 ## Flingern (no active feed)
 #"https://karte.ffdus.de/new/data/meshviewer.json" = "flingern"
-
-## Frankenberg
-"https://map.freifunk-fkb.de/data/fkb/meshviewer.json" = "frankenberg"
-"https://map.freifunk-fkb.de/data/ebl/meshviewer.json" = "frankenberg"
-"https://map.freifunk-fkb.de/data/kb/meshviewer.json" = "frankenberg"
-"https://map.freifunk-fkb.de/data/bw/meshviewer.json" = "frankenberg"
 
 ## Frankfurt
 "https://yanic.batman15.ffffm.net/meshviewer.json" = "frankfurt"
@@ -135,7 +123,6 @@ status_json = "/var/www/html/collector/status.json"
 ## Koeln
 "https://map.kbu.freifunk.net/data/ffeu/meshviewer.json" = "koeln"
 "https://map.kbu.freifunk.net/data/ffkbub-V2/meshviewer.json" = "koeln"
-"https://map.kbu.freifunk.net/data/ffkbub/meshviewer.json" = "koeln"
 "https://map.kbu.freifunk.net/data/ffkbuk/meshviewer.json" = "koeln"
 "https://map.kbu.freifunk.net/data/ffkbuu/meshviewer.json" = "koeln"
 
@@ -163,7 +150,6 @@ status_json = "/var/www/html/collector/status.json"
 
 ## Muenchen 
 "https://map.ffmuc.net/yanic/meshviewer.json" = "muenchen"
-"https://gw02.ext.ffmuc.net/meshviewer.json" = "muenchen"
 
 ## Müritz / Feldberg
 "http://hopglass.4830.org/yanic/muer/meshviewer.json" = "mueritz"
@@ -173,10 +159,15 @@ status_json = "/var/www/html/collector/status.json"
 "https://map.freifunk-niersufer.de/data/meshviewer.json" = "niersufer"
 
 ## Nord
-"https://mesh.freifunknord.de/data/v2/meshviewer.json" = "nord"
+"https://mesh.freifunknord.de/data/meshviewer.json" = "nord"
+"https://mesh.freifunknord.de/iz/meshviewer.json" = "nord"
+"https://mesh.freifunknord.de/ploh/meshviewer.json" = "nord"
 
 ## Nordheide
 "http://map.freifunk-nordheide.de/data/meshviewer.json" = "nordheide"
+
+## Nordhessen
+"https://map.freifunk-nordhessen.de/data/meshviewer.json" = "nordhessen"
 
 ## Nordwest
 "https://map.ffnw.de/data/meshviewer.json" = "nordwest"
@@ -242,10 +233,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://maps.tackin.de/data/meshviewer.json" = "trier"
 
 ## Troisdorf
-"https://map.freifunk-troisdorf.de/data/tdf4/meshviewer.json" = "troisdorf"
-"https://map.freifunk-troisdorf.de/data/tdf5/meshviewer.json" = "troisdorf"
-"https://map.freifunk-troisdorf.de/data/tdf6/meshviewer.json" = "troisdorf"
-"https://map.freifunk-troisdorf.de/data/tdf7/meshviewer.json" = "troisdorf"
+"https://map.freifunk-troisdorf.de/data/api/meshviewer.json" = "troisdorf"
 
 ## Tuttlingen (invlaid format - non-standard)
 # "https://map.freifunk-3laendereck.net/map-data/fftut/meshviewer.json" = "tuttlingen"
