@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	log "github.com/Sirupsen/logrus"
+	"github.com/bdlm/log"
 
 	"dev.sum7.eu/genofire/golang-lib/file"
 	"github.com/FreifunkBremen/yanic/database"
