@@ -221,7 +221,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://map.freifunk.ruhr/data/rgw/meshviewer.json" = "ruhr"
 
 ## Stuttgart
-"https://map02.freifunk-stuttgart.de/data/meshviewer.json" = "stuttgart"
+"https://map.freifunk-stuttgart.de/data/meshviewer.json" = "stuttgart"
 
 ## Suedholstein
 "https://map.freifunk-suedholstein.de/data/meshviewer.json" = "suedholstein"
