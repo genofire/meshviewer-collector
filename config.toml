@@ -230,7 +230,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://new.freifunk-suedpfalz.de/netzausbau/data/meshviewer.json" = "suedpfalz"
 
 ## Trier
-"https://maps.tackin.de/data/meshviewer.json" = "trier"
+"https://maps.freifunk-trier.de/data/meshviewer.json" = "trier"
 
 ## Troisdorf
 "https://map.freifunk-troisdorf.de/data/api/meshviewer.json" = "troisdorf"
