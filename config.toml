@@ -85,7 +85,7 @@ status_json = "/var/www/html/collector/status.json"
 "http://hopglass.4830.org/yanic/ffgt/meshviewer.json" = "guetersloh"
 
 ## Hannover
-"https://harvester.ffh.zone/meshviewer.json" = "hannover"
+"https://harvester.ffh.zone/api/meshviewer.json" = "hannover"
 
 ## Hennef (no active yanic - old file)
 # "https://map.freifunk-hennef.de/yanic/meshviewer.json" = "hennef"
