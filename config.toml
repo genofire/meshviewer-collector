@@ -115,7 +115,7 @@ status_json = "/var/www/html/collector/status.json"
 "https://api.karlsruhe.freifunk.net/yanic/meshviewer/meshviewer.json" = "karlsruhe"
 
 ## Kitzingen
-"https://map.freifunk-kitzingen.de/data/meshviewer.json" = "kitzingen"
+"https://falterturm.freifunk-vec.de/meshviewer.json" = "kitzingen"
 
 ## Koblenz
 "https://status.freifunk-myk.de/data/meshviewer.json" = "mayen-koblenz"
